@@ -1,0 +1,28 @@
+# Unity #
+Library/
+Obj/
+Temp/
+UnityGenerated/
+*ProjectVersion.txt
+
+# Visual Studio #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+.vscode
+
+# Atom
+.tags*
+
+# Mac
+.DS_Store*
+
+# Project specific
+Assets/Resources*
