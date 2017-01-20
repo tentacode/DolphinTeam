@@ -3,7 +3,7 @@
 public class Player : MonoBehaviour
 {
 	[SerializeField]
-	private float moveUnit;
+	private GameConfig gameConfig;
 
 	private Transform tfm;
 	private int hPosition = 0;
@@ -29,11 +29,11 @@ public class Player : MonoBehaviour
 			++this.hPosition;
 		}
 
-		this.hPosition = Mathf.Clamp(this.hPosition, -1, 1);
+		this.hPosition = Mathf.Clamp(this.hPosition, -(this.gameConfig.ColumnCount / 2), this.gameConfig.ColumnCount / 2);
 
 		this.tfm.localPosition = new Vector3
 		(
-			(float)this.hPosition * this.moveUnit,
+			(float)this.hPosition * this.gameConfig.MoveUnit,
 			this.tfm.localPosition.y,
 			this.tfm.localPosition.z
 		);

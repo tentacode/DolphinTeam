@@ -3,7 +3,7 @@
 public class Level : MonoBehaviour
 {
 	[SerializeField]
-	private float speed;
+	private GameConfig gameConfig;
 
 	private Transform tfm;
 
@@ -14,6 +14,6 @@ public class Level : MonoBehaviour
 
 	private void Update()
 	{
-		this.tfm.position += this.speed * Time.deltaTime * Vector3.up;
+		this.tfm.position += this.gameConfig.LevelSpeed * Time.deltaTime * Vector3.up;
 	}
 }
