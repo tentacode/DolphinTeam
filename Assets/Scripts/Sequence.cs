@@ -6,6 +6,6 @@ public class Sequence : ScriptableObject
 	public int WaveGroupCount;
 	public AnimationCurve MinDifficultyCurve;
 	public AnimationCurve MaxDifficultyCurve;
-	public float VerticalSize;
 	public bool NoHazardHiding;
+	public float WaveSize;
 }

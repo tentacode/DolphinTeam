@@ -3,10 +3,10 @@
 [CreateAssetMenu]
 public class GameConfig : ScriptableObject
 {
-	public float LevelSpeed;
+	public float ScrollSpeed;
 	public float MoveUnit;
 	public int ColumnCount;
-	public float WaveOffset;
+	public float FirstWaveOffset;
 	public int InitPlayerHeartCount;
     public int MaxPlayerHeartCount;
 	public float JumpDuration;
@@ -69,7 +69,7 @@ public class GameConfig : ScriptableObject
             }
         }
 
-        Debug.LogErrorFormat("Unable to find {0} hazard type animator!", hazardTypeName);
+        //Debug.LogErrorFormat("Unable to find {0} hazard type animator!", hazardTypeName);
         return null;
     }
 }

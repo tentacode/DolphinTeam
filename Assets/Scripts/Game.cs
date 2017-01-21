@@ -26,11 +26,11 @@ public class Game : MonoBehaviour
 	}
 
 	//private void Start()
-	public void StartGame()
+	public void GenerateLevel()
 	{
 		Random.InitState(this.seed);
 
-		int globalWaveNumber = 1;
+		float waveYPosition = this.gameConfig.FirstWaveOffset;
 
 		// Generate sequence
 		for (int sequenceIndex = 0; sequenceIndex < this.gameConfig.Sequences.Length; ++sequenceIndex)
@@ -75,8 +75,6 @@ public class Game : MonoBehaviour
 					WavePattern wavePattern = difficultyWaveGroupPattern.WavePatterns[patternIndex];
 					//Debug.LogFormat("Wave > {0}", wavePattern.name);
 
-					float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
-
 					GameObject waveGO = GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up + this.gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
 					waveGO.name = wavePattern.name;
 
@@ -87,7 +85,7 @@ public class Game : MonoBehaviour
 						this.SpawnHazard(hazardSpawnConfig.HazardType, hazardSpawnConfig.ColumnIndex, waveYPosition, sequence.NoHazardHiding);
 					}
 
-					++globalWaveNumber;
+					waveYPosition += sequence.WaveSize;
 				}
 			}
 		}
@@ -130,6 +128,24 @@ public class Game : MonoBehaviour
 		{
 			// Toggle debug mode
 			this.debugCamera.enabled = !this.debugCamera.enabled;
+		}
+
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			this.Restart();
+		}
+
+		if (Input.GetKeyDown(KeyCode.KeypadPlus))
+		{
+			Time.timeScale *= 2f;
+		}
+		else if (Input.GetKeyDown(KeyCode.KeypadMinus))
+		{
+			Time.timeScale *= 0.5f;
+		}
+		else if (Input.GetKeyDown(KeyCode.KeypadEquals))
+		{
+			Time.timeScale = 1f;
 		}
 	}
 }

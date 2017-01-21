@@ -7,6 +7,6 @@ public class Level : AdvancedMonoBehaviour
 
 	private void Update()
 	{
-		this.Tfm.position += this.gameConfig.LevelSpeed * Time.deltaTime * Vector3.up;
+		this.Tfm.position += this.gameConfig.ScrollSpeed * Time.deltaTime * Vector3.up;
 	}
 }
