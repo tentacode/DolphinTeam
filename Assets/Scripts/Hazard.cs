@@ -26,7 +26,7 @@ public class Hazard : AdvancedMonoBehaviour
 		this.Type = type;
         this.Collider = GetComponent<BoxCollider2D>();
 
-        if (Game.Instance.LocalPlayerIndex == colorIndex)
+        if (!noHazardHiding && Game.Instance.LocalPlayerIndex == colorIndex)
 		{
 			// Hidden
 			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");

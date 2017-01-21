@@ -17,3 +17,4 @@ MonoBehaviour:
   AirLeft: 0
   AirMiddle: 2
   AirRight: 0
+  NoHazardHiding: 1
