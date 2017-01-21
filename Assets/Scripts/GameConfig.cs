@@ -10,6 +10,7 @@ public class GameConfig : ScriptableObject
 	public int MaxPatternGroupCount;
 	public float WaveOffset;
 	public int InitPlayerHeartCount;
+    public int MaxPlayerHeartCount;
 	public Color[] PlayerColors;
 	public Sprite[] HazardSprites;
 	public PatternGroup[] PatternGroups;

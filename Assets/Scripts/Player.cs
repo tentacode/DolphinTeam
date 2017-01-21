@@ -15,6 +15,8 @@ public class Player : AdvancedMonoBehaviour
 	private Animator animator;
 	[SerializeField]
 	private RectTransform gameOverUI;
+    [SerializeField]
+    private LifeDisplay lifeDisplay;
 
 	private int hPosition = 0;
 	private Hazard collidingHazard;
@@ -53,7 +55,7 @@ public class Player : AdvancedMonoBehaviour
 	{
 		//Debug.LogFormat("OnTriggerExit2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
-		if (hazard == null)
+		if (hazard == null || this.collidingHazard == null)
 		{
 			return;
 		}
@@ -115,7 +117,9 @@ public class Player : AdvancedMonoBehaviour
 					break;
 
 				case Hazard.HazardType.Heart:
-					++this.heartCount;
+                    this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
+                    this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
+                    this.collidingHazard = null;
 					break;
 
 				case Hazard.HazardType.Treasure:
@@ -125,12 +129,18 @@ public class Player : AdvancedMonoBehaviour
 
 			if (death)
 			{
-				Debug.LogError(this.collidingHazard.Type);
-				this.gameOverUI.Show();
-				Time.timeScale = 0f;
-				this.isDead = true;
-			}
-		}
+                Debug.LogError(this.collidingHazard.Type);
+                this.heartCount = Mathf.Max(this.heartCount - 1, 0);
+                this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
+                if (this.heartCount == 0)
+                {
+                    this.gameOverUI.Show();
+                    Time.timeScale = 0f;
+                    this.isDead = true;
+                }
+                this.collidingHazard = null;
+            }
+        }
 	}
 
 	private IEnumerator Jump()
