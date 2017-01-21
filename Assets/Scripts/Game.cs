@@ -131,5 +131,23 @@ public class Game : MonoBehaviour
 			// Toggle debug mode
 			this.debugCamera.enabled = !this.debugCamera.enabled;
 		}
+
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			this.Restart();
+		}
+
+		if (Input.GetKeyDown(KeyCode.KeypadPlus))
+		{
+			Time.timeScale *= 2f;
+		}
+		else if (Input.GetKeyDown(KeyCode.KeypadMinus))
+		{
+			Time.timeScale *= 0.5f;
+		}
+		else if (Input.GetKeyDown(KeyCode.KeypadEquals))
+		{
+			Time.timeScale = 1f;
+		}
 	}
 }
