@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu]
-public class Pattern : ScriptableObject
+public class WavePattern : ScriptableObject
 {
 	public Hazard.HazardType GroundLeft;
 	public Hazard.HazardType GroundMiddle;
@@ -9,4 +9,5 @@ public class Pattern : ScriptableObject
 	public Hazard.HazardType AirLeft;
 	public Hazard.HazardType AirMiddle;
 	public Hazard.HazardType AirRight;
+	public bool NoHazardHiding;
 }

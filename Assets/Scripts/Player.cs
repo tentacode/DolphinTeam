@@ -17,8 +17,10 @@ public class Player : AdvancedMonoBehaviour
 	private RectTransform gameOverUI;
     [SerializeField]
     private LifeDisplay lifeDisplay;
+    [SerializeField]
+    private TreasureDisplay treasureDisplay;
 
-	private int hPosition = 0;
+    private int hPosition = 0;
 	private Hazard collidingHazard;
 	private bool isAirborn;
 	private bool isDead;
@@ -126,6 +128,7 @@ public class Player : AdvancedMonoBehaviour
 
 				case Hazard.HazardType.Treasure:
 					++this.treasureCount;
+                    this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
                     this.collidingHazard.Collider.enabled = false;
                     break;
                     // -------------------

@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private int localPlayerIndex;
 
-	private List<PatternGroup> difficultyPatternGroups = new List<PatternGroup>();
+	private List<WaveGroupPattern> difficultyWaveGroupPatterns = new List<WaveGroupPattern>();
 
 	public int LocalPlayerIndex { get { return this.localPlayerIndex; } }
 
@@ -33,46 +33,53 @@ public class Game : MonoBehaviour
 
 		int globalWaveNumber = 1;
 
-		// Generate pattern groups
-		int patternGroupCount = Random.Range(this.gameConfig.MinPatternGroupCount, this.gameConfig.MaxPatternGroupCount + 1);
-		for (int patternGroupNumber = 1; patternGroupNumber <= patternGroupCount; ++patternGroupNumber)
+		// Generate sequence
+		for (int sequenceIndex = 1; sequenceIndex <= this.gameConfig.Sequences.Length; ++sequenceIndex)
 		{
-			// Compute pattern group difficulty
-			float difficultyTime = (float)patternGroupNumber / (float)patternGroupCount;
-			float minDifficulty = this.gameConfig.MinDifficultyCurve.Evaluate(difficultyTime);
-			float maxDifficulty = this.gameConfig.MaxDifficultyCurve.Evaluate(difficultyTime);
+			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 
-			// Filter pattern groups for difficulty
-			this.difficultyPatternGroups.Clear();
-			for (int patternGroupIndex = 0; patternGroupIndex < this.gameConfig.PatternGroups.Length; ++patternGroupIndex)
+			// Generate pattern groups
+			for (int waveGroupPatternNumber = 1; waveGroupPatternNumber <= sequence.WaveGroupCount; ++waveGroupPatternNumber)
 			{
-				PatternGroup patternGroup = this.gameConfig.PatternGroups[patternGroupIndex];
-				if (patternGroup.Difficulty >= minDifficulty && patternGroup.Difficulty <= maxDifficulty)
+				// Compute pattern group difficulty
+				float difficultyTime = (float)waveGroupPatternNumber / (float)sequence.WaveGroupCount;
+				float minDifficulty = sequence.MinDifficultyCurve.Evaluate(difficultyTime);
+				float maxDifficulty = sequence.MaxDifficultyCurve.Evaluate(difficultyTime);
+
+				// Filter pattern groups for difficulty
+				this.difficultyWaveGroupPatterns.Clear();
+				for (int patternGroupIndex = 0; patternGroupIndex < this.gameConfig.WaveGroupPatterns.Length; ++patternGroupIndex)
 				{
-					this.difficultyPatternGroups.Add(patternGroup);
+					WaveGroupPattern waveGroupPattern = this.gameConfig.WaveGroupPatterns[patternGroupIndex];
+					if (waveGroupPattern.Difficulty >= minDifficulty && waveGroupPattern.Difficulty <= maxDifficulty)
+					{
+						this.difficultyWaveGroupPatterns.Add(waveGroupPattern);
+					}
 				}
-			}
 
-			if (this.difficultyPatternGroups.Count < 1)
-			{
-				Debug.LogErrorFormat("No pattern group for difficulty between {0} and {1}!", minDifficulty, maxDifficulty);
-				break;
-			}
+				if (this.difficultyWaveGroupPatterns.Count < 1)
+				{
+					Debug.LogErrorFormat("No pattern group for difficulty between {0} and {1}!", minDifficulty, maxDifficulty);
+					break;
+				}
 
-			// Generate wave group
-			PatternGroup difficultyPatternGroup = this.difficultyPatternGroups[Random.Range(0, this.difficultyPatternGroups.Count)];
-			for (int patternIndex = 0; patternIndex < difficultyPatternGroup.Patterns.Length; ++patternIndex)
-			{
-				// Generate wave
-				Pattern pattern = difficultyPatternGroup.Patterns[patternIndex];
+				// Generate wave group
+				WaveGroupPattern difficultyWaveGroupPattern = this.difficultyWaveGroupPatterns[Random.Range(0, this.difficultyWaveGroupPatterns.Count)];
+				for (int patternIndex = 0; patternIndex < difficultyWaveGroupPattern.WavePatterns.Length; ++patternIndex)
+				{
+					// Generate wave
+					WavePattern wavePattern = difficultyWaveGroupPattern.WavePatterns[patternIndex];
 
-				float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
+					float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
 
-				this.SpawnHazard(pattern.GroundLeft, 0, waveYPosition);
-				this.SpawnHazard(pattern.GroundMiddle, 1, waveYPosition);
-				this.SpawnHazard(pattern.GroundRight, 2, waveYPosition);
+					GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up, Quaternion.identity);
 
-				++globalWaveNumber;
+					this.SpawnHazard(wavePattern.GroundLeft, 0, waveYPosition);
+					this.SpawnHazard(wavePattern.GroundMiddle, 1, waveYPosition);
+					this.SpawnHazard(wavePattern.GroundRight, 2, waveYPosition);
+
+					++globalWaveNumber;
+				}
 			}
 		}
 	}
