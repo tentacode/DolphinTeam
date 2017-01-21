@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 830cb2793a7e8504195c3cebc28f581a, type: 3}
-  m_Name: Pattern group D1-1
+  m_Name: Pattern group D1-R-1
   m_EditorClassIdentifier: 
-  Difficulty: 2
+  Difficulty: 1
   WavePatterns:
-  - {fileID: 11400000, guid: 923c789a0ff567047a1e4b5de84fc239, type: 2}
-  - {fileID: 11400000, guid: 6f2192b77b0b8d44a8dac0a815d4273d, type: 2}
-  - {fileID: 11400000, guid: d4dbf3ad881d0634a8c5513d2ba0f656, type: 2}
-  - {fileID: 11400000, guid: 25bbd2fe269b21343a1199daf62c5d27, type: 2}
+  - {fileID: 11400000, guid: 11ab1eb105b15ec4fb3e9de5c965ac44, type: 2}
+  - {fileID: 11400000, guid: 88ab63a910b34e14f87eb2b1a03ed8a5, type: 2}
+  - {fileID: 11400000, guid: f26f30348c9c0e94a995878a891f972a, type: 2}
+  - {fileID: 11400000, guid: 5a79947771dba8a4c9eefac95300bb5c, type: 2}
