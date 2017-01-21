@@ -15,8 +15,25 @@ public class StaticWavePattern : WavePattern
 	{
 		CollectionTools.Init(ref hazardSpawnConfigs);
 
-		hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = this.GroundLeft, ColumnIndex = 0 });
-		hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = this.GroundMiddle, ColumnIndex = 1 });
-		hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = this.GroundRight, ColumnIndex = 2 });
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.GroundLeft, 0);
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.GroundMiddle, 1);
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.GroundRight, 2);
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.AirLeft, 0);
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.AirMiddle, 1);
+		this.AddHazardSpawn(ref hazardSpawnConfigs, this.AirRight, 2);
+	}
+
+	private void AddHazardSpawn(ref List<HazardSpawnConfig> hazardSpawnConfigs, Hazard.HazardType hazardType, int columnIndex)
+	{
+		if (hazardType == Hazard.HazardType.None)
+		{
+			return;
+		}
+
+		hazardSpawnConfigs.Add(new HazardSpawnConfig()
+		{
+			HazardType = hazardType,
+			ColumnIndex = columnIndex
+		});
 	}
 }

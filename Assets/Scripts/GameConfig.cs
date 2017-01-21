@@ -3,6 +3,7 @@
 [CreateAssetMenu]
 public class GameConfig : ScriptableObject
 {
+	public bool DebugMode;
 	public float ScrollSpeed;
 	public float MoveUnit;
 	public int ColumnCount;

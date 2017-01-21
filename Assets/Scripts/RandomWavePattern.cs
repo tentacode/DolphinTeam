@@ -71,7 +71,7 @@ public class RandomWavePattern : WavePattern
 								// Nothing on the ground
 								groundHazards[columnIndex] == Hazard.HazardType.None ||
 								// Mine under but authorized
-								(groundHazards[columnIndex] == Hazard.HazardType.Helicopter && this.AuthorizeHelicopterOverMine) ||
+								(groundHazards[columnIndex] == Hazard.HazardType.Mine && this.AuthorizeHelicopterOverMine) ||
 								// Bonus under but authorized
 								((groundHazards[columnIndex] == Hazard.HazardType.AirTreasure || groundHazards[columnIndex] == Hazard.HazardType.AirHeart) && this.AuthorizeHelicopterOverBonus)
 							)

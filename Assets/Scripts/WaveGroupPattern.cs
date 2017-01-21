@@ -5,10 +5,11 @@ public class WaveGroupPattern : ScriptableObject
 {
 	public int Difficulty;
 	public WavePattern[] WavePatterns;
+	public bool Disabled;
 
 	public void SpawnWaves(GameConfig gameConfig, int playerCount, float waveSize, ref float waveYPosition)
 	{
-		//Debug.LogFormat("WaveGroup > {0}",  difficultyWaveGroupPattern.name);
+		if (gameConfig.DebugMode) Debug.LogFormat("WaveGroup = {0}", this.name);
 
 		for (int wavePatternIndex = 0; wavePatternIndex < this.WavePatterns.Length; ++wavePatternIndex)
 		{

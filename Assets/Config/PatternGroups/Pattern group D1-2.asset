@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830cb2793a7e8504195c3cebc28f581a, type: 3}
   m_Name: Pattern group D1-2
   m_EditorClassIdentifier: 
-  Difficulty: 1
+  Difficulty: 2
   WavePatterns:
   - {fileID: 11400000, guid: bb3b98946599f8744bb1299e051b52a2, type: 2}
   - {fileID: 11400000, guid: 923c789a0ff567047a1e4b5de84fc239, type: 2}

@@ -8,12 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40c75efe9644294b8772df03f348dcb, type: 3}
-  m_Name: TransitionPattern3
+  m_Script: {fileID: 11500000, guid: c284dca1b6e9eb341b1fd703a066f06a, type: 3}
+  m_Name: TEST
   m_EditorClassIdentifier: 
-  GroundLeft: 4
-  GroundMiddle: 4
-  GroundRight: 6
-  AirLeft: 0
-  AirMiddle: 0
-  AirRight: 0
+  WaveSize: 500
+  WavePatterns:
+  - {fileID: 11400000, guid: 2adef133766117b40aa20c5434f097be, type: 2}

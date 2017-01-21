@@ -1,21 +1,22 @@
 fileFormatVersion: 2
-guid: 33825867057c1ee4ab5747f211ef453a
-timeCreated: 1485018539
+guid: f5ea0800a715ba148b64edea67b50cd4
+timeCreated: 1485031338
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MineDead_0
-    21300002: MineDead_1
-    21300004: MineDead_2
-    21300006: MineDead_3
-    21300008: MineDead_4
-    21300010: MineDead_5
-    21300012: MineDead_6
-    21300014: MineDead_7
-    21300016: MineDead_8
-    21300018: MineDead_9
-    21300020: MineDead_10
-    21300022: MineDead_11
+    21300000: HelicopterDead_0
+    21300002: HelicopterDead_1
+    21300004: HelicopterDead_2
+    21300006: HelicopterDead_3
+    21300008: HelicopterDead_4
+    21300010: HelicopterDead_5
+    21300012: HelicopterDead_6
+    21300014: HelicopterDead_7
+    21300016: HelicopterDead_8
+    21300018: HelicopterDead_9
+    21300020: HelicopterDead_10
+    21300022: HelicopterDead_11
+    21300024: HelicopterDead_12
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -90,156 +91,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MineDead_0
+      name: HelicopterDead_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
-        width: 500
-        height: 500
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_1
+      name: HelicopterDead_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
-        width: 500
-        height: 500
+        x: 300
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_2
+      name: HelicopterDead_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 500
-        width: 500
-        height: 500
+        x: 600
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_3
+      name: HelicopterDead_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 500
-        width: 500
-        height: 500
+        x: 900
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_4
+      name: HelicopterDead_4
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 500
-        width: 500
-        height: 500
+        x: 0
+        y: 600
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_5
+      name: HelicopterDead_5
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 500
-        width: 500
-        height: 500
+        x: 300
+        y: 600
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MineDead_6
+      name: HelicopterDead_6
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_7
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_9
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_10
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_11
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HelicopterDead_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MineDead_7
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MineDead_8
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MineDead_9
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MineDead_10
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MineDead_11
-      rect:
-        serializedVersion: 2
-        x: 2500
-        y: 0
-        width: 500
-        height: 500
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cce4a735b4be9344196c2c3a920e431f, type: 3}
-  m_Name: Test - 1
+  m_Name: Test - 5
   m_EditorClassIdentifier: 
-  HazardTypes: 010000000500000001000000
+  HazardTypes: 01000000030000000200000005000000
   AuthorizeBonusOverMine: 1
   AuthorizeHelicopterOverBonus: 1
   AuthorizeHelicopterOverMine: 1

@@ -51,7 +51,7 @@ public class Player : AdvancedMonoBehaviour
             return;
         }
 
-		//Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
+		if (gameConfig.DebugMode) Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
 		if (hazard == null)
 		{
@@ -59,12 +59,12 @@ public class Player : AdvancedMonoBehaviour
 		}
 
 		this.collidingHazard = hazard;
-		//Debug.LogWarning(this.collidingHazard.Type);
+		if (gameConfig.DebugMode) Debug.LogWarning(this.collidingHazard.Type);
 	}
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		//Debug.LogFormat("OnTriggerExit2D {0}", other.name);
+		if (gameConfig.DebugMode) Debug.LogFormat("OnTriggerExit2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
 		if (hazard == null)
 		{
