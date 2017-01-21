@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Difficulty: 3
   WavePatterns:
-  - {fileID: 11400000, guid: c6d4ba63f6c0253498315646563d9553, type: 2}
-  - {fileID: 11400000, guid: 49f0b9136e3fa68468421f4c2a49c15d, type: 2}
-  - {fileID: 11400000, guid: 4bb734de862165744aa7bd94ef579bda, type: 2}
-  - {fileID: 11400000, guid: c6d4ba63f6c0253498315646563d9553, type: 2}
+  - {fileID: 11400000, guid: aeae961ec87057742abaf79b0a9b62f7, type: 2}
+  - {fileID: 11400000, guid: 846104e54a4dc174e9936e78a41cde7f, type: 2}
+  - {fileID: 11400000, guid: b85518ca05fee904cba3583402908220, type: 2}
+  - {fileID: 11400000, guid: 9b3ab99053adee34ab638656887933e9, type: 2}
