@@ -11,9 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b412ac449e34b84abfa760a7b34266d, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
+  ScrollSpeed: 100
   MoveUnit: 100
   ColumnCount: 3
-  WaveSize: 500
+  FirstWaveOffset: 1000
   InitPlayerHeartCount: 2
   MaxPlayerHeartCount: 3
   JumpDuration: 3

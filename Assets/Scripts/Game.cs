@@ -14,8 +14,6 @@ public class Game : MonoBehaviour
 	private int playerCount;
 	[SerializeField]
 	private Camera debugCamera;
-	[SerializeField]
-	private Level level;
 
 	private List<WaveGroupPattern> difficultyWaveGroupPatterns = new List<WaveGroupPattern>();
 	private List<WavePattern.HazardSpawnConfig> waveHazardSpawnConfigs;
@@ -28,20 +26,17 @@ public class Game : MonoBehaviour
 	}
 
 	//private void Start()
-	public void StartGame()
+	public void GenerateLevel()
 	{
 		Random.InitState(this.seed);
 
-		int globalWaveNumber = 1;
-		this.level.Tfm.position = Vector3.zero;
+		float waveYPosition = this.gameConfig.FirstWaveOffset;
 
 		// Generate sequence
 		for (int sequenceIndex = 0; sequenceIndex < this.gameConfig.Sequences.Length; ++sequenceIndex)
 		{
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 			//Debug.LogWarningFormat("Sequence > {0}", sequence.name);
-
-			this.level.SetSpeed(sequence.Speed);
 
 			// Generate pattern groups
 			for (int waveGroupPatternNumber = 1; waveGroupPatternNumber <= sequence.WaveGroupCount; ++waveGroupPatternNumber)
@@ -80,8 +75,6 @@ public class Game : MonoBehaviour
 					WavePattern wavePattern = difficultyWaveGroupPattern.WavePatterns[patternIndex];
 					//Debug.LogFormat("Wave > {0}", wavePattern.name);
 
-					float waveYPosition = this.gameConfig.WaveSize * globalWaveNumber;
-
 					GameObject waveGO = GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up + this.gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
 					waveGO.name = wavePattern.name;
 
@@ -92,7 +85,7 @@ public class Game : MonoBehaviour
 						this.SpawnHazard(hazardSpawnConfig.HazardType, hazardSpawnConfig.ColumnIndex, waveYPosition, sequence.NoHazardHiding);
 					}
 
-					++globalWaveNumber;
+					waveYPosition += sequence.WaveSize;
 				}
 			}
 		}
