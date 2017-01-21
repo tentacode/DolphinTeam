@@ -12,6 +12,7 @@ public class GameConfig : ScriptableObject
 	public int MinHazardCount;
 	public int MaxHazardCount;
 	public int InitPlayerHeartCount;
+    public int MaxPlayerHeartCount;
 	public Color[] PlayerColors;
 	public Sprite[] HazardSprites;
 
