@@ -11,10 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40c75efe9644294b8772df03f348dcb, type: 3}
   m_Name: TransitionPattern4
   m_EditorClassIdentifier: 
-  GroundLeft: 5
-  GroundMiddle: 5
+  GroundLeft: 6
+  GroundMiddle: 6
   GroundRight: 4
   AirLeft: 0
   AirMiddle: 0
   AirRight: 0
-  NoHazardHiding: 1
