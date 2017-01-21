@@ -33,6 +33,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6e5081d273c401645898c15258fccb4c, type: 3}
   - {fileID: 21300000, guid: 64237cd4e42e4a84180ad294105e99ee, type: 3}
   - {fileID: 21300000, guid: b8082cb84cb3f3c4ca84c16d4fc9f93d, type: 3}
+  HazardAudioSources: []
+  HazardAnimators:
+  - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
+  - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}
   WaveGroupPatterns:
   - {fileID: 11400000, guid: 7ffaa8ee99dce804e95812b9f7cd060d, type: 2}
   - {fileID: 11400000, guid: 82ea7d4ce0eb62b46bab2aaf760f462b, type: 2}

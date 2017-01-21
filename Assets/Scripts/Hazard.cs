@@ -6,6 +6,10 @@ public class Hazard : AdvancedMonoBehaviour
 	private GameConfig gameConfig;
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private Animator animator;
 
 	public HazardType Type { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -35,6 +39,18 @@ public class Hazard : AdvancedMonoBehaviour
 		}
 
 		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(this.Type);
+        //        this.audioSource.clip = this.gameConfig.GetHazardAudio(this.Type);
+        this.animator.runtimeAnimatorController = this.gameConfig.GetHazardAnimator(this.Type);
 		this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
 	}
+
+    public void OnPlayerDeadlyCollision()
+    {
+        this.animator.SetTrigger("Dead");
+    }
+
+    public void OnPlayerCollision()
+    {
+        this.animator.SetTrigger("Touched");
+    }
 }
