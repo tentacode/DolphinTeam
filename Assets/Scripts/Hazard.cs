@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 
-public class Hazard : MonoBehaviour
+public class Hazard : AdvancedMonoBehaviour
 {
 	[SerializeField]
-	private Color[] colors;
-	[SerializeField]
-	private Sprite[] sprites;
+	private GameConfig gameConfig;
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
 
-	private HazardType type;
+	public HazardType Type { get; private set; }
 
 	[System.Serializable]
 	public enum HazardType
 	{
 		Mine,
-		Flying,
+		Helicopter,
 		Shark,
 	}
 
@@ -26,11 +24,17 @@ public class Hazard : MonoBehaviour
 		public int ColorIndex;
 	}
 
-	public void Init(Hazard.Config hazardConfig)
+	public void Init(Config hazardConfig)
 	{
-		this.spriteRenderer.sprite = this.sprites[(int)hazardConfig.Type];
-		this.spriteRenderer.color = this.colors[hazardConfig.ColorIndex];
+		if (Game.Instance.LocalPlayerIndex == hazardConfig.ColorIndex)
+		{
+			// Hidden
+			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
+		}
 
-		this.type = hazardConfig.Type;
+		this.spriteRenderer.sprite = this.gameConfig.Sprites[(int)hazardConfig.Type];
+		this.spriteRenderer.color = this.gameConfig.Colors[hazardConfig.ColorIndex];
+
+		this.Type = hazardConfig.Type;
 	}
 }

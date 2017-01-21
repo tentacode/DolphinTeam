@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Step : MonoBehaviour
+public class Step : AdvancedMonoBehaviour
 {
 	[SerializeField]
 	private GameConfig gameConfig;
@@ -16,11 +16,11 @@ public class Step : MonoBehaviour
 			}
 
 			GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, Vector3.zero, Quaternion.identity);
-
-			hazardGO.transform.parent = this.transform;
-			hazardGO.transform.localPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit * Vector3.right;
-
 			Hazard hazard = hazardGO.GetComponent<Hazard>();
+
+			hazard.Tfm.parent = this.Tfm;
+			hazard.Tfm.localPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit * Vector3.right;
+
 			hazard.Init(hazardConfig);
 		}
 	}

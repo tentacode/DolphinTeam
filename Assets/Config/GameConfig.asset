@@ -19,6 +19,14 @@ MonoBehaviour:
   StepOffset: 300
   MinHazardCount: 1
   MaxHazardCount: 3
+  Colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.5882353, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  Sprites:
+  - {fileID: 21300000, guid: 64237cd4e42e4a84180ad294105e99ee, type: 3}
+  - {fileID: 21300000, guid: 0c81e0aecddf01644870f7d32d9e02f6, type: 3}
+  - {fileID: 21300000, guid: b8082cb84cb3f3c4ca84c16d4fc9f93d, type: 3}
   StepPrefab: {fileID: 1643633763093302, guid: 81052c904b4207648a65e78bf4af4321, type: 2}
   HazardPrefab: {fileID: 1409025855768848, guid: 0e66c2e40c875634dbbdb860bad11c61,
     type: 2}

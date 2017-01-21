@@ -11,6 +11,8 @@ public class GameConfig : ScriptableObject
 	public float StepOffset;
 	public int MinHazardCount;
 	public int MaxHazardCount;
+	public Color[] Colors;
+	public Sprite[] Sprites;
 
 	public GameObject StepPrefab;
 	public GameObject HazardPrefab;
