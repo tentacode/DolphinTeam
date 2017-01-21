@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Name: TransitionPattern2
   m_EditorClassIdentifier: 
   GroundLeft: 4
-  GroundMiddle: 5
+  GroundMiddle: 6
   GroundRight: 4
   AirLeft: 0
   AirMiddle: 0
   AirRight: 0
-  NoHazardHiding: 1
