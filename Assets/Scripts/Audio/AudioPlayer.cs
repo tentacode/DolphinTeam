@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioPlayer : MonoBehaviour {
+public class AudioPlayer : MonoBehaviour
+{
+    [SerializeField]
+    private AudioSource audioSource;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void SetAudioClip(AudioClip clip)
+    {
+        audioSource.clip = clip;
+    }
+
+    public void PlayClip()
+    {
+        audioSource.Play();
+    }
 }

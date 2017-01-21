@@ -15,6 +15,8 @@ public class Player : AdvancedMonoBehaviour
     private LifeDisplay lifeDisplay;
     [SerializeField]
     private TreasureDisplay treasureDisplay;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private int hPosition = 0;
 	private Hazard collidingHazard;
@@ -22,9 +24,11 @@ public class Player : AdvancedMonoBehaviour
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
+    private bool hasBeenHit;
 
 	private void Start()
 	{
+        this.hasBeenHit = false;
 		this.heartCount = this.gameConfig.InitPlayerHeartCount;
         this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
         this.gameOverUI.Hide();
@@ -37,6 +41,16 @@ public class Player : AdvancedMonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+        if (other.CompareTag("Wave") == true )
+        {
+            if (this.hasBeenHit == false)
+            {
+                this.audioSource.Play();
+            }
+            this.hasBeenHit = false;
+            return;
+        }
+
 		//Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
 		if (hazard == null)
@@ -143,8 +157,9 @@ public class Player : AdvancedMonoBehaviour
 
 			if (isHit)
 			{
-				Debug.LogError(this.collidingHazard.Type);
-				this.heartCount = Mathf.Max(this.heartCount - 1, 0);
+                Debug.LogError(this.collidingHazard.Type);
+                this.hasBeenHit = true;
+                this.heartCount = Mathf.Max(this.heartCount - 1, 0);
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
                 if (this.heartCount == 0)
                 {
