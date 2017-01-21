@@ -1,13 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-[CreateAssetMenu]
-public class WavePattern : ScriptableObject
+public abstract class WavePattern : ScriptableObject
 {
-	public Hazard.HazardType GroundLeft;
-	public Hazard.HazardType GroundMiddle;
-	public Hazard.HazardType GroundRight;
-	public Hazard.HazardType AirLeft;
-	public Hazard.HazardType AirMiddle;
-	public Hazard.HazardType AirRight;
-	public bool NoHazardHiding;
+	public struct HazardSpawnConfig
+	{
+		public Hazard.HazardType HazardType;
+		public int ColumnIndex;
+	}
+
+	public abstract void GetHazards(ref List<HazardSpawnConfig> hazardSpawnConfigs, GameConfig gameConfig);
 }

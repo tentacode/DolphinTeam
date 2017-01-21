@@ -14,21 +14,20 @@ public class Game : MonoBehaviour
 	private int playerCount;
 	[SerializeField]
 	private Camera debugCamera;
-	[SerializeField]
-	private int localPlayerIndex;
 
 	private List<WaveGroupPattern> difficultyWaveGroupPatterns = new List<WaveGroupPattern>();
+	private List<WavePattern.HazardSpawnConfig> waveHazardSpawnConfigs;
 
-	public int LocalPlayerIndex { get { return this.localPlayerIndex; } }
+	public int LocalPlayerIndex { get; private set; }
 
 	public Game()
 	{
 		Game.Instance = this;
 	}
 
-	private void Start()
+	//private void Start()
+	public void StartGame()
 	{
-		Time.timeScale = 1f;
 		Random.InitState(this.seed);
 
 		int globalWaveNumber = 1;
@@ -81,9 +80,12 @@ public class Game : MonoBehaviour
 					GameObject waveGO = GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up + this.gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
 					waveGO.name = wavePattern.name;
 
-					this.SpawnHazard(wavePattern.GroundLeft, 0, waveYPosition, wavePattern.NoHazardHiding);
-					this.SpawnHazard(wavePattern.GroundMiddle, 1, waveYPosition, wavePattern.NoHazardHiding);
-					this.SpawnHazard(wavePattern.GroundRight, 2, waveYPosition, wavePattern.NoHazardHiding);
+					wavePattern.GetHazards(ref this.waveHazardSpawnConfigs, this.gameConfig);
+					for (int hazardIndex = 0; hazardIndex < this.waveHazardSpawnConfigs.Count; ++hazardIndex)
+					{
+						WavePattern.HazardSpawnConfig hazardSpawnConfig = this.waveHazardSpawnConfigs[hazardIndex];
+						this.SpawnHazard(hazardSpawnConfig.HazardType, hazardSpawnConfig.ColumnIndex, waveYPosition, sequence.NoHazardHiding);
+					}
 
 					++globalWaveNumber;
 				}
@@ -110,17 +112,24 @@ public class Game : MonoBehaviour
 		hazard.Init(hazardType, colorIndex, noHazardHiding);
 	}
 
+	public void SetLocalPlayerIndex(int playerIndex)
+	{
+		this.LocalPlayerIndex = playerIndex;
+		//Player.Instance.SetLocalPlayerIndex(playerIndex);
+	}
+
+	public void Restart()
+	{
+		SceneManager.LoadScene(0);
+		Time.timeScale = 1f;
+	}
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
 			// Toggle debug mode
 			this.debugCamera.enabled = !this.debugCamera.enabled;
-		}
-		else if (Input.GetKeyDown(KeyCode.R))
-		{
-			// Restart
-			SceneManager.LoadScene(0);
 		}
 	}
 }
