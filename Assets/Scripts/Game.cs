@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private int localPlayerIndex;
 
-	private List<int> freeColumns = new List<int>();
+	private List<PatternGroup> difficultyPatternGroups = new List<PatternGroup>();
 
 	public int LocalPlayerIndex { get { return this.localPlayerIndex; } }
 
@@ -31,40 +31,66 @@ public class Game : MonoBehaviour
 		Time.timeScale = 1f;
 		Random.InitState(this.seed);
 
-		Hazard.HazardType[] hazardTypes = System.Enum.GetValues(typeof(Hazard.HazardType)) as Hazard.HazardType[];
+		int globalWaveNumber = 1;
 
-		int stepCount = Random.Range(this.gameConfig.MinStepCount, this.gameConfig.MaxStepCount + 1);
-		for (int stepIndex = 0; stepIndex < stepCount; ++stepIndex)
+		// Generate pattern groups
+		int patternGroupCount = Random.Range(this.gameConfig.MinPatternGroupCount, this.gameConfig.MaxPatternGroupCount + 1);
+		for (int patternGroupNumber = 1; patternGroupNumber <= patternGroupCount; ++patternGroupNumber)
 		{
-			GameObject stepGO = GameObject.Instantiate(this.gameConfig.StepPrefab, this.gameConfig.StepOffset * (stepIndex + 1) * Vector3.up, Quaternion.identity);
-			Step step = stepGO.GetComponent<Step>();
+			// Compute pattern group difficulty
+			float difficultyTime = (float)patternGroupNumber / (float)patternGroupCount;
+			float minDifficulty = this.gameConfig.MinDifficultyCurve.Evaluate(difficultyTime);
+			float maxDifficulty = this.gameConfig.MaxDifficultyCurve.Evaluate(difficultyTime);
 
-			this.freeColumns = new List<int>();
-			for (int columnIndex = 0; columnIndex < this.gameConfig.ColumnCount; ++columnIndex)
+			// Filter pattern groups for difficulty
+			this.difficultyPatternGroups.Clear();
+			for (int patternGroupIndex = 0; patternGroupIndex < this.gameConfig.PatternGroups.Length; ++patternGroupIndex)
 			{
-				this.freeColumns.Add(columnIndex);
-			}
-
-			int hazardCount = Random.Range(this.gameConfig.MinHazardCount, this.gameConfig.MaxHazardCount + 1);
-			Hazard.Config[] hazardConfigs = new Hazard.Config[this.gameConfig.ColumnCount];
-			for (int hazardIndex = 0; hazardIndex < hazardCount; ++hazardIndex)
-			{
-				Hazard.Config hazardConfig = new Hazard.Config();
-
-				int columnIndex = Random.Range(0, this.freeColumns.Count);
-				this.freeColumns.RemoveAt(columnIndex);
-
-				hazardConfig.ColorIndex = Random.Range(0, this.playerCount);
-				hazardConfig.Type = hazardTypes[Random.Range(0, hazardTypes.Length)];
-
-				if (hazardConfig.Type != Hazard.HazardType.None)
+				PatternGroup patternGroup = this.gameConfig.PatternGroups[patternGroupIndex];
+				if (patternGroup.Difficulty >= minDifficulty && patternGroup.Difficulty <= maxDifficulty)
 				{
-					hazardConfigs[columnIndex] = hazardConfig;
+					this.difficultyPatternGroups.Add(patternGroup);
 				}
 			}
 
-			step.Init(hazardConfigs);
+			if (this.difficultyPatternGroups.Count < 1)
+			{
+				Debug.LogErrorFormat("No pattern group for difficulty between {0} and {1}!", minDifficulty, maxDifficulty);
+				break;
+			}
+
+			// Generate wave group
+			PatternGroup difficultyPatternGroup = this.difficultyPatternGroups[Random.Range(0, this.difficultyPatternGroups.Count)];
+			for (int patternIndex = 0; patternIndex < difficultyPatternGroup.Patterns.Length; ++patternIndex)
+			{
+				// Generate wave
+				Pattern pattern = difficultyPatternGroup.Patterns[patternIndex];
+
+				float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
+
+				this.SpawnHazard(pattern.GroundLeft, 0, waveYPosition);
+				this.SpawnHazard(pattern.GroundMiddle, 1, waveYPosition);
+				this.SpawnHazard(pattern.GroundRight, 2, waveYPosition);
+
+				++globalWaveNumber;
+			}
 		}
+	}
+
+	private void SpawnHazard(Hazard.HazardType hazardType, int columnIndex, float waveYPosition)
+	{
+		if (hazardType == Hazard.HazardType.None)
+		{
+			return;
+		}
+
+		float hazardXPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit;
+
+		int colorIndex = Random.Range(0, this.playerCount);
+
+		GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up, Quaternion.identity);
+		Hazard hazard = hazardGO.GetComponent<Hazard>();
+		hazard.Init(hazardType, colorIndex);
 	}
 
 	private void Update()

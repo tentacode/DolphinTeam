@@ -14,11 +14,9 @@ MonoBehaviour:
   LevelSpeed: 100
   MoveUnit: 70
   ColumnCount: 3
-  MinStepCount: 15
-  MaxStepCount: 20
-  StepOffset: 300
-  MinHazardCount: 1
-  MaxHazardCount: 3
+  MinPatternGroupCount: 10
+  MaxPatternGroupCount: 15
+  WaveOffset: 300
   InitPlayerHeartCount: 3
   PlayerColors:
   - {r: 1, g: 0, b: 0, a: 1}
@@ -30,12 +28,45 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6e5081d273c401645898c15258fccb4c, type: 3}
   - {fileID: 21300000, guid: 64237cd4e42e4a84180ad294105e99ee, type: 3}
   - {fileID: 21300000, guid: b8082cb84cb3f3c4ca84c16d4fc9f93d, type: 3}
-  StepPrefab: {fileID: 1643633763093302, guid: 81052c904b4207648a65e78bf4af4321, type: 2}
+  PatternGroups:
+  - {fileID: 11400000, guid: 7ffaa8ee99dce804e95812b9f7cd060d, type: 2}
+  - {fileID: 11400000, guid: 82ea7d4ce0eb62b46bab2aaf760f462b, type: 2}
+  - {fileID: 11400000, guid: 5b97217bb51457a49b9a2098407b24c6, type: 2}
   HazardPrefab: {fileID: 1409025855768848, guid: 0e66c2e40c875634dbbdb860bad11c61,
     type: 2}
-  DifficultyCurve:
+  MinDifficultyCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
+  MaxDifficultyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 6.9925647
+      outSlope: 6.9925647
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 10
+      inSlope: 26.522825
+      outSlope: 26.522825
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0

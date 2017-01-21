@@ -20,24 +20,17 @@ public class Hazard : AdvancedMonoBehaviour
 		Treasure,
 	}
 
-	[System.Serializable]
-	public class Config
+	public void Init(HazardType type, int colorIndex)
 	{
-		public HazardType Type;
-		public int ColorIndex;
-	}
+		this.Type = type;
 
-	public void Init(Config hazardConfig)
-	{
-		if (Game.Instance.LocalPlayerIndex == hazardConfig.ColorIndex)
+		if (Game.Instance.LocalPlayerIndex == colorIndex)
 		{
 			// Hidden
 			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
 		}
 
-		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(hazardConfig.Type);
-		this.spriteRenderer.color = this.gameConfig.PlayerColors[hazardConfig.ColorIndex];
-
-		this.Type = hazardConfig.Type;
+		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(this.Type);
+		this.spriteRenderer.color = this.gameConfig.PlayerColors[colorIndex];
 	}
 }
