@@ -6,19 +6,16 @@ public class GameConfig : ScriptableObject
 	public float LevelSpeed;
 	public float MoveUnit;
 	public int ColumnCount;
-	public int MinPatternGroupCount;
-	public int MaxPatternGroupCount;
 	public float WaveOffset;
 	public int InitPlayerHeartCount;
     public int MaxPlayerHeartCount;
 	public Color[] PlayerColors;
 	public Sprite[] HazardSprites;
-	public PatternGroup[] PatternGroups;
+	public WaveGroupPattern[] WaveGroupPatterns;
+	public Sequence[] Sequences;
 
 	public GameObject HazardPrefab;
-
-	public AnimationCurve MinDifficultyCurve;
-	public AnimationCurve MaxDifficultyCurve;
+	public GameObject WavePrefab;
 
 	public Sprite GetHazardSprite(Hazard.HazardType hazardType)
 	{

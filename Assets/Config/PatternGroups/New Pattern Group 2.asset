@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Name: New Pattern Group 2
   m_EditorClassIdentifier: 
   Difficulty: 2
-  Patterns:
+  WavePatterns:
   - {fileID: 11400000, guid: 4bb734de862165744aa7bd94ef579bda, type: 2}
   - {fileID: 11400000, guid: b85518ca05fee904cba3583402908220, type: 2}
-  - {fileID: 11400000, guid: 9b37912b243d68f48bcd01d62af9486c, type: 2}
