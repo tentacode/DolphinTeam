@@ -16,7 +16,7 @@ MonoBehaviour:
   MoveUnit: 100
   ColumnCount: 3
   FirstWaveOffset: 1000
-  InitPlayerHeartCount: 2
+  InitPlayerHeartCount: 1
   MaxPlayerHeartCount: 3
   JumpDuration: 3
   HazardSprites:
@@ -32,6 +32,7 @@ MonoBehaviour:
   HazardAnimators:
   - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
   - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}
+  - {fileID: 22100000, guid: c4e5cbc892a15e44daea7c2f4dd879ab, type: 2}
   WaveGroupPatterns:
   - {fileID: 11400000, guid: 091d23864e24a21408ba4a0e0c0d28e7, type: 2}
   - {fileID: 11400000, guid: 57404f25972e90b449d0f9d1a6e01b31, type: 2}
@@ -48,7 +49,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 821d5eb359fedbb4b9995f99f8794a94, type: 2}
   - {fileID: 11400000, guid: d27b8945d2f5d9147beedefe5afe72c9, type: 2}
   Sequences:
-  - {fileID: 11400000, guid: 815c61146d6080749b8f4f711e78c45f, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
   - {fileID: 11400000, guid: fe075b313c97bfe4b8a3780cd060b9a1, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
