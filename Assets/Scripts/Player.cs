@@ -10,8 +10,6 @@ public class Player : AdvancedMonoBehaviour
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
 	[SerializeField]
-	private float jumpDuration;
-	[SerializeField]
 	private Animator animator;
 	[SerializeField]
 	private RectTransform gameOverUI;
@@ -156,7 +154,7 @@ public class Player : AdvancedMonoBehaviour
 		this.isAirborn = true;
 		this.animator.SetBool("IsAirborn", this.isAirborn);
 
-		yield return new WaitForSeconds(this.jumpDuration);
+		yield return new WaitForSeconds(this.gameConfig.JumpDuration);
 
 		this.isAirborn = false;
 		this.animator.SetBool("IsAirborn", this.isAirborn);

@@ -9,6 +9,7 @@ public class GameConfig : ScriptableObject
 	public float WaveOffset;
 	public int InitPlayerHeartCount;
     public int MaxPlayerHeartCount;
+	public float JumpDuration;
 	public Color[] PlayerColors;
 	public Sprite[] HazardSprites;
 	public WaveGroupPattern[] WaveGroupPatterns;

@@ -11,12 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b412ac449e34b84abfa760a7b34266d, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  LevelSpeed: 100
-  MoveUnit: 70
+  LevelSpeed: 10000
+  MoveUnit: 7000
   ColumnCount: 3
-  WaveOffset: 300
+  WaveOffset: 30000
   InitPlayerHeartCount: 3
   MaxPlayerHeartCount: 5
+  JumpDuration: 2
   PlayerColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.5882353, b: 0, a: 1}
