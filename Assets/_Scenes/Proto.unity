@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 103560144}
   - component: {fileID: 103560143}
   - component: {fileID: 103560142}
+  - component: {fileID: 103560147}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -206,6 +207,19 @@ Transform:
   m_Father: {fileID: 1616703080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &103560147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 103560141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c930a37f6247ff9e502fb88640a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleArea: {x: 320, y: 568}
+  pixelsPerUnit: 1
 --- !u!1 &115408529
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,9 +313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 338f6b190e379494e9d629be330e3f04, type: 2}
   seed: 42
-  playerCount: 2
+  playerCount: 3
   debugCamera: {fileID: 1408561340}
-  localPlayerIndex: 1
+  localPlayerIndex: 0
 --- !u!4 &188240276
 Transform:
   m_ObjectHideFlags: 0
@@ -467,7 +481,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -741,7 +755,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a5bea05548005845b7a194cf9042271, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b365f4db63ecb43d5af78b9ccc5d11fd, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
@@ -800,10 +814,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -2.74}
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 30, y: 80}
 --- !u!50 &1152215832
 Rigidbody2D:
   serializedVersion: 4
@@ -853,6 +867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408561341}
   - component: {fileID: 1408561340}
+  - component: {fileID: 1408561342}
   m_Layer: 0
   m_Name: DebugCamera
   m_TagString: Untagged
@@ -911,6 +926,19 @@ Transform:
   m_Father: {fileID: 1616703080}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1408561342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1408561339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287c930a37f6247ff9e502fb88640a5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visibleArea: {x: 320, y: 568}
+  pixelsPerUnit: 1
 --- !u!1 &1616703078
 GameObject:
   m_ObjectHideFlags: 0

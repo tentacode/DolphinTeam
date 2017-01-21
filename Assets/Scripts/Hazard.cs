@@ -21,7 +21,7 @@ public class Hazard : AdvancedMonoBehaviour
 		Treasure,
 	}
 
-	public void Init(HazardType type, int colorIndex)
+	public void Init(HazardType type, int colorIndex, bool noHazardHiding)
 	{
 		this.Type = type;
         this.Collider = GetComponent<BoxCollider2D>();
@@ -33,6 +33,6 @@ public class Hazard : AdvancedMonoBehaviour
 		}
 
 		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(this.Type);
-		this.spriteRenderer.color = this.gameConfig.PlayerColors[colorIndex];
+		this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
 	}
 }
