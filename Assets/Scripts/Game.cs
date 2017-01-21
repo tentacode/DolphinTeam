@@ -34,7 +34,7 @@ public class Game : MonoBehaviour
 		int globalWaveNumber = 1;
 
 		// Generate sequence
-		for (int sequenceIndex = 1; sequenceIndex <= this.gameConfig.Sequences.Length; ++sequenceIndex)
+		for (int sequenceIndex = 0; sequenceIndex < this.gameConfig.Sequences.Length; ++sequenceIndex)
 		{
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 
