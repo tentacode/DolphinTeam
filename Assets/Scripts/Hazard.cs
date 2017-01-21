@@ -17,8 +17,10 @@ public class Hazard : AdvancedMonoBehaviour
 		Mine,
 		Helicopter,
 		Shark,
-		Heart,
-		Treasure,
+		GroundHeart,
+		AirHeart,
+		GroundTreasure,
+		AirTreasure,
 	}
 
 	public void Init(HazardType type, int colorIndex, bool noHazardHiding)

@@ -20,7 +20,7 @@ public class Player : AdvancedMonoBehaviour
 
     private int hPosition = 0;
 	private Hazard collidingHazard;
-	private bool isAirborn;
+	private bool isAirborne;
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
@@ -32,11 +32,15 @@ public class Player : AdvancedMonoBehaviour
 
 	private void Start()
 	{
-		this.spriteRenderer.color = this.gameConfig.PlayerColors[Game.Instance.LocalPlayerIndex];
 		this.heartCount = this.gameConfig.InitPlayerHeartCount;
         this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
         this.gameOverUI.Hide();
 	}
+
+	/*public void SetLocalPlayerIndex(int playerIndex)
+	{
+		this.spriteRenderer.color = this.gameConfig.PlayerColors[playerIndex];
+	}*/
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -73,20 +77,25 @@ public class Player : AdvancedMonoBehaviour
 			return;
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow))
+		if (!this.isAirborne)
 		{
-			// Move left
-			--this.hPosition;
-		}
-		else if (Input.GetKeyDown(KeyCode.RightArrow))
-		{
-			// Move right
-			++this.hPosition;
-		}
-		else if (Input.GetKeyDown(KeyCode.UpArrow))
-		{
-			// Jump
-			this.StartCoroutine(this.Jump());
+			if (DolphinInput.IsGoingLeft())
+			{
+				// Move left
+				--this.hPosition;
+			}
+
+			if (DolphinInput.IsGoingRight())
+			{
+				// Move right
+				++this.hPosition;
+			}
+
+			if (DolphinInput.IsJumping())
+			{
+				// Jump
+				this.StartCoroutine(this.Jump());
+			}
 		}
 
 		this.hPosition = Mathf.Clamp(this.hPosition, -(this.gameConfig.ColumnCount / 2), this.gameConfig.ColumnCount / 2);
@@ -101,62 +110,83 @@ public class Player : AdvancedMonoBehaviour
 		// Check hazard collision
 		if (this.collidingHazard != null)
 		{
-			bool hit = false;
+			bool isHit = false;
+			bool isCapturingHeart = false;
+			bool isCapturingTreasure = false;
 			switch (this.collidingHazard.Type)
 			{
+				// ------------ HIT
 				case Hazard.HazardType.Mine:
-					hit = !this.isAirborn;
+					isHit = !this.isAirborne;
 					break;
 
 				case Hazard.HazardType.Helicopter:
-					hit = this.isAirborn;
+					isHit = this.isAirborne;
 					break;
 
 				case Hazard.HazardType.Shark:
-					hit = true;
+					isHit = true;
+					break;
+				// -------------------
+
+				// ------------ BONUS
+				case Hazard.HazardType.GroundHeart:
+					isCapturingHeart = !this.isAirborne;
 					break;
 
-
-                    // ------------ BONUS
-                case Hazard.HazardType.Heart:
-                    this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
-                    this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
-                    this.collidingHazard.Collider.enabled = false;
+				case Hazard.HazardType.AirHeart:
+					isCapturingHeart = this.isAirborne;
 					break;
 
-				case Hazard.HazardType.Treasure:
-					++this.treasureCount;
-                    this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
-                    this.collidingHazard.Collider.enabled = false;
-                    break;
-                    // -------------------
+				case Hazard.HazardType.GroundTreasure:
+					isCapturingTreasure = !this.isAirborne;
+					break;
+
+				case Hazard.HazardType.AirTreasure:
+					isCapturingTreasure = this.isAirborne;
+					break;
+                // -------------------
 			}
 
-			if (hit)
+			if (isHit)
 			{
-                Debug.LogError(this.collidingHazard.Type);
+				Debug.LogError(this.collidingHazard.Type);
 				this.animator.SetTrigger("Hit");
-                this.heartCount = Mathf.Max(this.heartCount - 1, 0);
-                this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
-                if (this.heartCount == 0)
-                {
-                    this.gameOverUI.Show();
-                    Time.timeScale = 0f;
-                    this.isDead = true;
-                }
-                this.collidingHazard.Collider.enabled = false;
-            }
-        }
+				this.heartCount = Mathf.Max(this.heartCount - 1, 0);
+				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
+				if (this.heartCount == 0)
+				{
+					this.gameOverUI.Show();
+					Time.timeScale = 0f;
+					this.isDead = true;
+				}
+				this.collidingHazard.Collider.enabled = false;
+			}
+
+			if (isCapturingHeart)
+			{
+				this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
+				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
+				this.collidingHazard.Collider.enabled = false;
+			}
+
+			if (isCapturingTreasure)
+			{
+				++this.treasureCount;
+				this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
+				this.collidingHazard.Collider.enabled = false;
+			}
+		}
 	}
 
 	private IEnumerator Jump()
 	{
-		this.isAirborn = true;
-		this.animator.SetBool("IsAirborn", this.isAirborn);
+		this.isAirborne = true;
+		this.animator.SetBool("IsAirborne", this.isAirborne);
 
 		yield return new WaitForSeconds(this.gameConfig.JumpDuration);
 
-		this.isAirborn = false;
-		this.animator.SetBool("IsAirborn", this.isAirborn);
+		this.isAirborne = false;
+		this.animator.SetBool("IsAirborne", this.isAirborne);
 	}
 }

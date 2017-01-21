@@ -7,4 +7,5 @@ public class Sequence : ScriptableObject
 	public AnimationCurve MinDifficultyCurve;
 	public AnimationCurve MaxDifficultyCurve;
 	public float VerticalSize;
+	public bool NoHazardHiding;
 }
