@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -839,11 +839,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 338f6b190e379494e9d629be330e3f04, type: 2}
   spriteRenderer: {fileID: 1993690889}
-  jumpDuration: 3
+  jumpDuration: 2
   animator: {fileID: 1152215830}
   gameOverUI: {fileID: 512992863}
   lifeDisplay: {fileID: 1737026036}
-  treasureDisplay: {fileID: 534883078}
+  treasureDisplay: {fileID: 0}
 --- !u!1 &1408561339
 GameObject:
   m_ObjectHideFlags: 0
