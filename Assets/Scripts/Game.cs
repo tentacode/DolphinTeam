@@ -14,6 +14,7 @@ public class Game : MonoBehaviour
 	private Camera debugCamera;
 
 	public int LocalPlayerIndex { get; private set; }
+	public int PlayerCount { get; private set; }
 
 	public Game()
 	{
@@ -23,6 +24,11 @@ public class Game : MonoBehaviour
 	public void SetLocalPlayerIndex(int playerIndex)
 	{
 		this.LocalPlayerIndex = playerIndex;
+	}
+
+	public void SetPlayerCount(int playerCount)
+	{
+		this.PlayerCount = playerCount;
 	}
 
 	public void GenerateLevel(int seed)
