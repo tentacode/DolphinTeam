@@ -15,7 +15,7 @@ MonoBehaviour:
   MoveUnit: 100
   ColumnCount: 3
   WaveOffset: 500
-  InitPlayerHeartCount: 2
+  InitPlayerHeartCount: 3
   MaxPlayerHeartCount: 3
   JumpDuration: 2
   PlayerColors:
