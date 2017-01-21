@@ -41,7 +41,7 @@ public class Hazard : AdvancedMonoBehaviour
 		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(this.Type);
         this.audioSource.clip = this.gameConfig.GetHazardAudio(this.Type);
         this.animator.runtimeAnimatorController = this.gameConfig.GetHazardAnimator(this.Type);
-		this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
+		//this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
 	}
 
     public void OnPlayerDeadlyCollision()
