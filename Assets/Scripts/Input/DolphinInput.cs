@@ -14,7 +14,7 @@ public class DolphinInput : MonoBehaviour
 
     public static bool IsJumping()
     {
-        return (Input.GetKeyDown(KeyCode.Space) || IsTap());
+        return (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || IsTap());
     }
 
     public static bool IsGoingLeft()

@@ -20,7 +20,7 @@ public class Player : AdvancedMonoBehaviour
 
     private int hPosition = 0;
 	private Hazard collidingHazard;
-	private bool isAirborn;
+	private bool isAirborne;
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
@@ -77,20 +77,25 @@ public class Player : AdvancedMonoBehaviour
 			return;
 		}
 
-		if (DolphinInput.IsGoingLeft())
+		if (!this.isAirborne)
 		{
-			// Move left
-			--this.hPosition;
-		}
-		else if (DolphinInput.IsGoingRight())
-		{
-			// Move right
-			++this.hPosition;
-		}
-		else if (DolphinInput.IsJumping())
-		{
-			// Jump
-			this.StartCoroutine(this.Jump());
+			if (DolphinInput.IsGoingLeft())
+			{
+				// Move left
+				--this.hPosition;
+			}
+
+			if (DolphinInput.IsGoingRight())
+			{
+				// Move right
+				++this.hPosition;
+			}
+
+			if (DolphinInput.IsJumping())
+			{
+				// Jump
+				this.StartCoroutine(this.Jump());
+			}
 		}
 
 		this.hPosition = Mathf.Clamp(this.hPosition, -(this.gameConfig.ColumnCount / 2), this.gameConfig.ColumnCount / 2);
@@ -112,11 +117,11 @@ public class Player : AdvancedMonoBehaviour
 			{
 				// ------------ HIT
 				case Hazard.HazardType.Mine:
-					isHit = !this.isAirborn;
+					isHit = !this.isAirborne;
 					break;
 
 				case Hazard.HazardType.Helicopter:
-					isHit = this.isAirborn;
+					isHit = this.isAirborne;
 					break;
 
 				case Hazard.HazardType.Shark:
@@ -126,19 +131,19 @@ public class Player : AdvancedMonoBehaviour
 
 				// ------------ BONUS
 				case Hazard.HazardType.GroundHeart:
-					isCapturingHeart = !this.isAirborn;
+					isCapturingHeart = !this.isAirborne;
 					break;
 
 				case Hazard.HazardType.AirHeart:
-					isCapturingHeart = this.isAirborn;
+					isCapturingHeart = this.isAirborne;
 					break;
 
 				case Hazard.HazardType.GroundTreasure:
-					isCapturingTreasure = !this.isAirborn;
+					isCapturingTreasure = !this.isAirborne;
 					break;
 
 				case Hazard.HazardType.AirTreasure:
-					isCapturingTreasure = this.isAirborn;
+					isCapturingTreasure = this.isAirborne;
 					break;
                 // -------------------
 			}
@@ -157,13 +162,15 @@ public class Player : AdvancedMonoBehaviour
 				}
 				this.collidingHazard.Collider.enabled = false;
 			}
-			else if (isCapturingHeart)
+
+			if (isCapturingHeart)
 			{
 				this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
 				this.collidingHazard.Collider.enabled = false;
 			}
-			else if (isCapturingTreasure)
+
+			if (isCapturingTreasure)
 			{
 				++this.treasureCount;
 				this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
@@ -174,12 +181,12 @@ public class Player : AdvancedMonoBehaviour
 
 	private IEnumerator Jump()
 	{
-		this.isAirborn = true;
-		this.animator.SetBool("IsAirborn", this.isAirborn);
+		this.isAirborne = true;
+		this.animator.SetBool("IsAirborne", this.isAirborne);
 
 		yield return new WaitForSeconds(this.gameConfig.JumpDuration);
 
-		this.isAirborn = false;
-		this.animator.SetBool("IsAirborn", this.isAirborn);
+		this.isAirborne = false;
+		this.animator.SetBool("IsAirborne", this.isAirborne);
 	}
 }
