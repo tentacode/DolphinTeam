@@ -20,7 +20,7 @@ public class Player : AdvancedMonoBehaviour
 
 	private int hPosition = 0;
 	private Hazard collidingHazard;
-	private bool isAirBorn;
+	private bool isAirborn;
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
@@ -101,19 +101,19 @@ public class Player : AdvancedMonoBehaviour
 		// Check hazard collision
 		if (this.collidingHazard != null)
 		{
-			bool death = false;
+			bool hit = false;
 			switch (this.collidingHazard.Type)
 			{
 				case Hazard.HazardType.Mine:
-					death = !this.isAirBorn;
+					hit = !this.isAirborn;
 					break;
 
 				case Hazard.HazardType.Helicopter:
-					death = this.isAirBorn;
+					hit = this.isAirborn;
 					break;
 
 				case Hazard.HazardType.Shark:
-					death = true;
+					hit = true;
 					break;
 
 
@@ -131,9 +131,10 @@ public class Player : AdvancedMonoBehaviour
                     // -------------------
 			}
 
-			if (death)
+			if (hit)
 			{
                 Debug.LogError(this.collidingHazard.Type);
+				this.animator.SetTrigger("Hit");
                 this.heartCount = Mathf.Max(this.heartCount - 1, 0);
                 this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
                 if (this.heartCount == 0)
@@ -149,12 +150,12 @@ public class Player : AdvancedMonoBehaviour
 
 	private IEnumerator Jump()
 	{
-		this.isAirBorn = true;
-		this.animator.SetTrigger("Jump");
+		this.isAirborn = true;
+		this.animator.SetBool("IsAirborn", this.isAirborn);
 
 		yield return new WaitForSeconds(this.jumpDuration);
 
-		this.isAirBorn = false;
-		this.animator.SetTrigger("Land");
+		this.isAirborn = false;
+		this.animator.SetBool("IsAirborn", this.isAirborn);
 	}
 }
