@@ -5,9 +5,10 @@ using UnityEngine;
 public class RandomWavePattern : WavePattern
 {
 	public Hazard.HazardType[] HazardTypes;
-	public bool AuthorizeMineUnderBonus;
+	public bool AuthorizeBonusOverMine;
 	public bool AuthorizeHelicopterOverBonus;
 	public bool AuthorizeHelicopterOverMine;
+	public bool AuthorizeBonusOverBonus;
 
 	private Hazard.HazardType[] groundHazards;
 	private Hazard.HazardType[] airHazards;
@@ -17,14 +18,10 @@ public class RandomWavePattern : WavePattern
 	{
 		CollectionTools.Init(ref hazardSpawnConfigs);
 
+		// Reset wave slots
 		if (this.groundHazards == null)
 		{
 			this.groundHazards = new Hazard.HazardType[gameConfig.ColumnCount];
-		}
-
-		for (int columnIndex = 0; columnIndex < gameConfig.ColumnCount; ++columnIndex)
-		{
-			this.groundHazards[columnIndex] = Hazard.HazardType.None;
 		}
 
 		if (this.airHazards == null)
@@ -34,6 +31,7 @@ public class RandomWavePattern : WavePattern
 
 		for (int columnIndex = 0; columnIndex < gameConfig.ColumnCount; ++columnIndex)
 		{
+			this.groundHazards[columnIndex] = Hazard.HazardType.None;
 			this.airHazards[columnIndex] = Hazard.HazardType.None;
 		}
 
@@ -41,54 +39,115 @@ public class RandomWavePattern : WavePattern
 		{
 			Hazard.HazardType hazardType = this.HazardTypes[hazardIndex];
 
-			int columnIndex = Random.Range(0, gameConfig.ColumnCount);
-
-			// Build free columns list
+			// Scan for free columns
 			this.freeColumnIndexes.Clear();
-			for (columnIndex = 0; columnIndex < gameConfig.ColumnCount; ++columnIndex)
+			for (int columnIndex = 0; columnIndex < gameConfig.ColumnCount; ++columnIndex)
 			{
+				bool freeColumn = false;
 				switch (hazardType)
 				{
 					case Hazard.HazardType.Mine:
-					case Hazard.HazardType.GroundHeart:
-					case Hazard.HazardType.GroundTreasure:
-						this.freeColumnIndexes.AddIfNotAlreadyContained(columnIndex);
+						freeColumn =
+						(
+							// Nothing on ground
+							groundHazards[columnIndex] == Hazard.HazardType.None &&
+							(
+								// Nothing in the air
+								airHazards[columnIndex] == Hazard.HazardType.None ||
+								// Helicopter over but authorized
+								(airHazards[columnIndex] == Hazard.HazardType.Helicopter && this.AuthorizeHelicopterOverMine) ||
+								// Bonus over but authorized
+								((airHazards[columnIndex] == Hazard.HazardType.AirTreasure || airHazards[columnIndex] == Hazard.HazardType.AirHeart) && this.AuthorizeBonusOverMine)
+							)
+						);
 						break;
 
 					case Hazard.HazardType.Helicopter:
-					case Hazard.HazardType.AirHeart:
-					case Hazard.HazardType.AirTreasure:
-						this.freeColumnIndexes.AddIfNotAlreadyContained(columnIndex);
+						freeColumn =
+						(
+							// Nothing in the air
+							airHazards[columnIndex] == Hazard.HazardType.None &&
+							(
+								// Nothing on the ground
+								groundHazards[columnIndex] == Hazard.HazardType.None ||
+								// Mine under but authorized
+								(groundHazards[columnIndex] == Hazard.HazardType.Helicopter && this.AuthorizeHelicopterOverMine) ||
+								// Bonus under but authorized
+								((groundHazards[columnIndex] == Hazard.HazardType.AirTreasure || groundHazards[columnIndex] == Hazard.HazardType.AirHeart) && this.AuthorizeHelicopterOverBonus)
+							)
+						);
 						break;
 
 					case Hazard.HazardType.Shark:
-						this.groundHazards[columnIndex] = hazardType;
-						this.airHazards[columnIndex] = hazardType;
+						freeColumn =
+						(
+							// Nothing on the ground
+							groundHazards[columnIndex] == Hazard.HazardType.None &&
+							// Nothing in the air
+							airHazards[columnIndex] == Hazard.HazardType.None
+						);
 						break;
+
+					case Hazard.HazardType.GroundHeart:
+					case Hazard.HazardType.GroundTreasure:
+						freeColumn =
+						(
+							// Nothing on the ground
+							groundHazards[columnIndex] == Hazard.HazardType.None &&
+							(
+								// Nothing in the air
+								airHazards[columnIndex] == Hazard.HazardType.None ||
+								// Helicopter over but authorized
+								(airHazards[columnIndex] == Hazard.HazardType.Helicopter && this.AuthorizeHelicopterOverBonus) ||
+								// Bonus over but authorized
+								((airHazards[columnIndex] == Hazard.HazardType.AirTreasure || airHazards[columnIndex] == Hazard.HazardType.AirHeart) && this.AuthorizeBonusOverBonus)
+							)
+						);
+						break;
+
+					case Hazard.HazardType.AirHeart:
+					case Hazard.HazardType.AirTreasure:
+						freeColumn =
+						(
+							// Nothing in the air
+							airHazards[columnIndex] == Hazard.HazardType.None &&
+							(
+								// Nothing on the ground
+								groundHazards[columnIndex] == Hazard.HazardType.None ||
+								// Mine under but authorized
+								(groundHazards[columnIndex] == Hazard.HazardType.Helicopter && this.AuthorizeBonusOverMine) ||
+								// Bonus under but authorized
+								((groundHazards[columnIndex] == Hazard.HazardType.AirTreasure || groundHazards[columnIndex] == Hazard.HazardType.AirHeart) && this.AuthorizeBonusOverBonus)
+							)
+						);
+						break;
+				}
+
+				if (freeColumn)
+				{
+					this.freeColumnIndexes.Add(columnIndex);
 				}
 			}
 
+			// Place hazard
+			int freeColumnIndex = this.freeColumnIndexes[Random.Range(0, this.freeColumnIndexes.Count)];
 			switch (hazardType)
 			{
 				case Hazard.HazardType.Mine:
+				case Hazard.HazardType.Shark:
 				case Hazard.HazardType.GroundHeart:
 				case Hazard.HazardType.GroundTreasure:
-					this.groundHazards[columnIndex] = hazardType;
+					this.groundHazards[freeColumnIndex] = hazardType;
 					break;
 
 				case Hazard.HazardType.Helicopter:
 				case Hazard.HazardType.AirHeart:
 				case Hazard.HazardType.AirTreasure:
-					this.airHazards[columnIndex] = hazardType;
-					break;
-
-				case Hazard.HazardType.Shark:
-					this.groundHazards[columnIndex] = hazardType;
-					this.airHazards[columnIndex] = hazardType;
+					this.airHazards[freeColumnIndex] = hazardType;
 					break;
 			}
 
-			hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = hazardType, ColumnIndex = columnIndex });
+			hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = hazardType, ColumnIndex = freeColumnIndex });
 		}
 	}
 }
