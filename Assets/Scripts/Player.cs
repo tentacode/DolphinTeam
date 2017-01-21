@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Player : AdvancedMonoBehaviour
 {
-	public static Player Instance { get; private set; }
-
 	[SerializeField]
 	private GameConfig gameConfig;
 	[SerializeField]
@@ -24,11 +22,6 @@ public class Player : AdvancedMonoBehaviour
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
-
-	public Player()
-	{
-		Player.Instance = this;
-	}
 
 	private void Start()
 	{

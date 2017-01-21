@@ -316,6 +316,7 @@ MonoBehaviour:
   seed: 42
   playerCount: 2
   debugCamera: {fileID: 1408561340}
+  level: {fileID: 1616703079}
 --- !u!4 &188240276
 Transform:
   m_ObjectHideFlags: 0

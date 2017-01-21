@@ -3,10 +3,10 @@
 [CreateAssetMenu]
 public class GameConfig : ScriptableObject
 {
-	public float LevelSpeed;
 	public float MoveUnit;
 	public int ColumnCount;
-	public float WaveOffset;
+	[UnityEngine.Serialization.FormerlySerializedAs("WaveOffset")]
+	public float WaveSize;
 	public int InitPlayerHeartCount;
     public int MaxPlayerHeartCount;
 	public float JumpDuration;

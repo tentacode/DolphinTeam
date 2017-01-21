@@ -48,5 +48,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  VerticalSize: 200
+  Speed: 100
   NoHazardHiding: 0
