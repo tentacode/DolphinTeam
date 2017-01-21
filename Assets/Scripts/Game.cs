@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
 
 					float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
 
-					GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up, Quaternion.identity);
+					GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up + this.gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
 
 					this.SpawnHazard(wavePattern.GroundLeft, 0, waveYPosition, wavePattern.NoHazardHiding);
 					this.SpawnHazard(wavePattern.GroundMiddle, 1, waveYPosition, wavePattern.NoHazardHiding);
@@ -95,7 +95,7 @@ public class Game : MonoBehaviour
 
 		int colorIndex = Random.Range(0, this.playerCount);
 
-		GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up, Quaternion.identity);
+		GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up + this.gameConfig.HazardPrefab.transform.position.z * Vector3.forward, Quaternion.identity);
 		Hazard hazard = hazardGO.GetComponent<Hazard>();
 		hazard.Init(hazardType, colorIndex, noHazardHiding);
 	}
