@@ -52,6 +52,7 @@ public class Hazard : AdvancedMonoBehaviour
 		}
         this.audioSource.Play();
         this.animator.SetTrigger("Dead");
+        MakeVisible();
     }
 
     public void OnPlayerCollision()
@@ -62,5 +63,11 @@ public class Hazard : AdvancedMonoBehaviour
 		}
         this.audioSource.Play();
 		this.animator.SetTrigger("Touched");
+        MakeVisible();
+    }
+
+    private void MakeVisible()
+    {
+        this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 }
