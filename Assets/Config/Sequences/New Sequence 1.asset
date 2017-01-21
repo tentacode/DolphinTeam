@@ -11,13 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c5469f411857749bf10addcd30955f, type: 3}
   m_Name: New Sequence 1
   m_EditorClassIdentifier: 
+  WaveSize: 500
   WaveGroupCount: 3
   MinDifficultyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1
+      value: 0.90000004
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -48,5 +49,3 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  NoHazardHiding: 0
-  WaveSize: 500
