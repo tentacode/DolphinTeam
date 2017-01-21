@@ -71,7 +71,7 @@ public class GameConfig : ScriptableObject
             }
         }
 
-        //Debug.LogErrorFormat("Unable to find {0} hazard type animator!", hazardTypeName);
+        Debug.LogErrorFormat("Unable to find {0} hazard type animator!", hazardTypeName);
         return null;
     }
 }
