@@ -15,7 +15,7 @@ public class WavePattern : ScriptableObject
 
 	public void SpawnHazards(GameConfig gameConfig, int playerCount, float waveYPosition, bool noHazardHiding = false)
 	{
-		//Debug.LogFormat("Wave > {0}", wavePattern.name);
+		//if (gameConfig.DebugMode) Debug.LogFormat("Wave = {0}", this.name);
 
 		this.GetHazards(ref this.waveHazardSpawnConfigs, gameConfig);
 

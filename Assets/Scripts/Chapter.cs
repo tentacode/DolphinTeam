@@ -23,20 +23,20 @@ public class Chapter : Sequence
 			float difficultyTime = (float)waveGroupPatternNumber / (float)this.WaveGroupCount;
 			float minDifficulty = this.MinDifficultyCurve.Evaluate(difficultyTime);
 			float maxDifficulty = this.MaxDifficultyCurve.Evaluate(difficultyTime);
-			//Debug.LogFormat("minDifficulty > {0}", minDifficulty);
-			//Debug.LogFormat("maxDifficulty > {0}", maxDifficulty);
+			//if (gameConfig.DebugMode) Debug.LogFormat("minDifficulty = {0}", minDifficulty);
+			//if (gameConfig.DebugMode) Debug.LogFormat("maxDifficulty = {0}", maxDifficulty);
 
 			// Filter pattern groups for difficulty
 			this.difficultyWaveGroupPatterns.Clear();
 			for (int patternGroupIndex = 0; patternGroupIndex < gameConfig.WaveGroupPatterns.Length; ++patternGroupIndex)
 			{
 				WaveGroupPattern waveGroupPattern = gameConfig.WaveGroupPatterns[patternGroupIndex];
-				if (waveGroupPattern.Difficulty >= minDifficulty && waveGroupPattern.Difficulty <= maxDifficulty)
+				if (!waveGroupPattern.Disabled && waveGroupPattern.Difficulty >= minDifficulty && waveGroupPattern.Difficulty <= maxDifficulty)
 				{
 					this.difficultyWaveGroupPatterns.Add(waveGroupPattern);
 				}
 			}
-			//Debug.LogFormat("difficultyWaveGroupPatterns.Count > {0}", this.difficultyWaveGroupPatterns.Count);
+			if (gameConfig.DebugMode) Debug.LogFormat("difficultyWaveGroupPatterns.Count = {0}", this.difficultyWaveGroupPatterns.Count);
 
 			if (this.difficultyWaveGroupPatterns.Count < 1)
 			{
