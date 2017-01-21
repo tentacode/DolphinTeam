@@ -35,7 +35,7 @@ public class Hazard : AdvancedMonoBehaviour
         if (!noHazardHiding && Game.Instance.LocalPlayerIndex != playerIndex)
 		{
 			// Hidden
-			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
+			this.MakeInvisible();
 		}
 
         this.animator.runtimeAnimatorController = this.gameConfig.GetHazardAnimator(this.Type);
@@ -45,6 +45,18 @@ public class Hazard : AdvancedMonoBehaviour
         }
         this.audioSource.clip = this.gameConfig.GetHazardAudio(this.Type);
 		//this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
+
+		switch (this.Type)
+		{
+			case HazardType.Helicopter:
+			case HazardType.AirHeart:
+			case HazardType.AirTreasure:
+				// Air
+				Vector3 visualPosition = this.spriteRenderer.transform.localPosition;
+				visualPosition.z = -2;
+				this.spriteRenderer.transform.localPosition = visualPosition;
+				break;
+		}
 	}
 
 	public void OnPlayerDeadlyCollision()
@@ -71,11 +83,11 @@ public class Hazard : AdvancedMonoBehaviour
 
     private void MakeVisible()
     {
-        this.gameObject.layer = LayerMask.NameToLayer("Default");
+        this.spriteRenderer.gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     public void MakeInvisible()
     {
-        this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
+        this.spriteRenderer.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
     }
 }
