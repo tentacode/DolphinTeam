@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WavePattern : ScriptableObject
+public class WavePattern : ScriptableObject
 {
 	public struct HazardSpawnConfig
 	{
@@ -9,5 +9,5 @@ public abstract class WavePattern : ScriptableObject
 		public int ColumnIndex;
 	}
 
-	public abstract void GetHazards(ref List<HazardSpawnConfig> hazardSpawnConfigs, GameConfig gameConfig);
+	public virtual void GetHazards(ref List<HazardSpawnConfig> hazardSpawnConfigs, GameConfig gameConfig) { }
 }
