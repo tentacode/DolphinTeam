@@ -13,8 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundLeft: 4
   GroundMiddle: 4
-  GroundRight: 5
+  GroundRight: 6
   AirLeft: 0
   AirMiddle: 0
   AirRight: 0
-  NoHazardHiding: 1
