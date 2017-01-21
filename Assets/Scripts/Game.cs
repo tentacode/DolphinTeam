@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Game : MonoBehaviour
 
 	private void Start()
 	{
-		//Random.InitState(this.seed);
+		Random.InitState(this.seed);
 
 		Hazard.HazardType[] hazardTypes = System.Enum.GetValues(typeof(Hazard.HazardType)) as Hazard.HazardType[];
 
@@ -66,7 +67,13 @@ public class Game : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.F1))
 		{
+			// Toggle debug mode
 			this.debugCamera.enabled = !this.debugCamera.enabled;
+		}
+		else if (Input.GetKeyDown(KeyCode.R))
+		{
+			// Restart
+			SceneManager.LoadScene(0);
 		}
 	}
 }
