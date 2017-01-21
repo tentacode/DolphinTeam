@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b412ac449e34b84abfa760a7b34266d, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  LevelSpeed: 100
+  LevelSpeed: 500
   MoveUnit: 70
   ColumnCount: 3
   MinPatternGroupCount: 10
