@@ -11,6 +11,7 @@ public class GameConfig : ScriptableObject
     public int MaxPlayerHeartCount;
 	public float JumpDuration;
 	public Color[] PlayerColors;
+	public Color NeutralColor;
 	public Sprite[] HazardSprites;
 	public WaveGroupPattern[] WaveGroupPatterns;
 	public Sequence[] Sequences;

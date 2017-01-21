@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b412ac449e34b84abfa760a7b34266d, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  LevelSpeed: 10000
-  MoveUnit: 7000
+  LevelSpeed: 100
+  MoveUnit: 100
   ColumnCount: 3
-  WaveOffset: 30000
+  WaveOffset: 500
   InitPlayerHeartCount: 3
   MaxPlayerHeartCount: 5
   JumpDuration: 2
@@ -22,6 +22,11 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.5882353, b: 0, a: 1}
   - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.497, b: 0, a: 1}
+  NeutralColor: {r: 0, g: 0, b: 0, a: 1}
   HazardSprites:
   - {fileID: 21300000, guid: 0c81e0aecddf01644870f7d32d9e02f6, type: 3}
   - {fileID: 21300000, guid: c5c37675a77ba3a47b2717d405da084c, type: 3}

@@ -37,6 +37,7 @@ public class Game : MonoBehaviour
 		for (int sequenceIndex = 0; sequenceIndex < this.gameConfig.Sequences.Length; ++sequenceIndex)
 		{
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
+			Debug.LogWarningFormat("Sequence > {0}", sequence.name);
 
 			// Generate pattern groups
 			for (int waveGroupPatternNumber = 1; waveGroupPatternNumber <= sequence.WaveGroupCount; ++waveGroupPatternNumber)
@@ -45,6 +46,8 @@ public class Game : MonoBehaviour
 				float difficultyTime = (float)waveGroupPatternNumber / (float)sequence.WaveGroupCount;
 				float minDifficulty = sequence.MinDifficultyCurve.Evaluate(difficultyTime);
 				float maxDifficulty = sequence.MaxDifficultyCurve.Evaluate(difficultyTime);
+				Debug.LogFormat("minDifficulty > {0}", minDifficulty);
+				Debug.LogFormat("maxDifficulty > {0}", maxDifficulty);
 
 				// Filter pattern groups for difficulty
 				this.difficultyWaveGroupPatterns.Clear();
@@ -56,6 +59,7 @@ public class Game : MonoBehaviour
 						this.difficultyWaveGroupPatterns.Add(waveGroupPattern);
 					}
 				}
+				Debug.LogFormat("difficultyWaveGroupPatterns.Count > {0}", this.difficultyWaveGroupPatterns.Count);
 
 				if (this.difficultyWaveGroupPatterns.Count < 1)
 				{
@@ -65,18 +69,21 @@ public class Game : MonoBehaviour
 
 				// Generate wave group
 				WaveGroupPattern difficultyWaveGroupPattern = this.difficultyWaveGroupPatterns[Random.Range(0, this.difficultyWaveGroupPatterns.Count)];
+				Debug.LogFormat("WaveGroup > {0}",  difficultyWaveGroupPattern.name);
 				for (int patternIndex = 0; patternIndex < difficultyWaveGroupPattern.WavePatterns.Length; ++patternIndex)
 				{
 					// Generate wave
 					WavePattern wavePattern = difficultyWaveGroupPattern.WavePatterns[patternIndex];
+					Debug.LogFormat("Wave > {0}", wavePattern.name);
 
 					float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
 
-					GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up, Quaternion.identity);
+					GameObject waveGO = GameObject.Instantiate(this.gameConfig.WavePrefab, waveYPosition * Vector3.up + this.gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
+					waveGO.name = wavePattern.name;
 
-					this.SpawnHazard(wavePattern.GroundLeft, 0, waveYPosition);
-					this.SpawnHazard(wavePattern.GroundMiddle, 1, waveYPosition);
-					this.SpawnHazard(wavePattern.GroundRight, 2, waveYPosition);
+					this.SpawnHazard(wavePattern.GroundLeft, 0, waveYPosition, wavePattern.NoHazardHiding);
+					this.SpawnHazard(wavePattern.GroundMiddle, 1, waveYPosition, wavePattern.NoHazardHiding);
+					this.SpawnHazard(wavePattern.GroundRight, 2, waveYPosition, wavePattern.NoHazardHiding);
 
 					++globalWaveNumber;
 				}
@@ -84,20 +91,23 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	private void SpawnHazard(Hazard.HazardType hazardType, int columnIndex, float waveYPosition)
+	private void SpawnHazard(Hazard.HazardType hazardType, int columnIndex, float waveYPosition, bool noHazardHiding)
 	{
 		if (hazardType == Hazard.HazardType.None)
 		{
 			return;
 		}
 
-		float hazardXPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit;
+		Debug.LogFormat("Hazard > {0}", hazardType);
 
+		float hazardXPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit;
 		int colorIndex = Random.Range(0, this.playerCount);
 
-		GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up, Quaternion.identity);
+		GameObject hazardGO = GameObject.Instantiate(this.gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up + this.gameConfig.HazardPrefab.transform.position.z * Vector3.forward, Quaternion.identity);
+		hazardGO.name = hazardType.ToString();
+
 		Hazard hazard = hazardGO.GetComponent<Hazard>();
-		hazard.Init(hazardType, colorIndex);
+		hazard.Init(hazardType, colorIndex, noHazardHiding);
 	}
 
 	private void Update()
