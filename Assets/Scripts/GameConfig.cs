@@ -52,8 +52,6 @@ public class GameConfig : ScriptableObject
                 return hazardAudio;
             }
         }
-
-        Debug.LogErrorFormat("Unable to find {0} hazard type audio source!", hazardTypeName);
         return null;
     }
 
