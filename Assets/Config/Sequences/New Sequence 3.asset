@@ -11,21 +11,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c5469f411857749bf10addcd30955f, type: 3}
   m_Name: New Sequence 3
   m_EditorClassIdentifier: 
-  WaveGroupCount: 7
+  WaveGroupCount: 3
   MinDifficultyCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 10
+      inSlope: 8.214285
+      outSlope: 8.214285
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -35,9 +35,9 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 6
+      inSlope: 6.6153836
+      outSlope: 6.6153836
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -49,3 +49,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   VerticalSize: 200
+  NoHazardHiding: 0

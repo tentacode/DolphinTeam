@@ -33,10 +33,29 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6e5081d273c401645898c15258fccb4c, type: 3}
   - {fileID: 21300000, guid: 64237cd4e42e4a84180ad294105e99ee, type: 3}
   - {fileID: 21300000, guid: b8082cb84cb3f3c4ca84c16d4fc9f93d, type: 3}
+  HazardAudioSources: []
+  HazardAnimators:
+  - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
+  - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}
   WaveGroupPatterns:
   - {fileID: 11400000, guid: 7ffaa8ee99dce804e95812b9f7cd060d, type: 2}
   - {fileID: 11400000, guid: 82ea7d4ce0eb62b46bab2aaf760f462b, type: 2}
   - {fileID: 11400000, guid: 5b97217bb51457a49b9a2098407b24c6, type: 2}
+  - {fileID: 11400000, guid: f81ec382304d3cb40936d81db2ad4150, type: 2}
+  - {fileID: 11400000, guid: 6dc36a5f5a4bb0848922bc2b1cdfb737, type: 2}
+  - {fileID: 11400000, guid: 091d23864e24a21408ba4a0e0c0d28e7, type: 2}
+  - {fileID: 11400000, guid: 57404f25972e90b449d0f9d1a6e01b31, type: 2}
+  - {fileID: 11400000, guid: b50706033a986e34d9c371e3f19b8e33, type: 2}
+  - {fileID: 11400000, guid: 3bf829c6f67ee504a9b52ac4c8976516, type: 2}
+  - {fileID: 11400000, guid: 89b8f9ef99d1438499cef386259d8a23, type: 2}
+  - {fileID: 11400000, guid: 3fa648f581a037643887b351eb89e772, type: 2}
+  - {fileID: 11400000, guid: 506b2da3e9e9cd4428f80c7187b10d11, type: 2}
+  - {fileID: 11400000, guid: 1029f0b4d4bd23740bc12eba6e1ebd3e, type: 2}
+  - {fileID: 11400000, guid: a6630ad90884c4e468bbbce1bcd2cba7, type: 2}
+  - {fileID: 11400000, guid: 8126ba4a88802f64ebbb216d45882804, type: 2}
+  - {fileID: 11400000, guid: a013366efa35dfd45a21e96393a17dfc, type: 2}
+  - {fileID: 11400000, guid: 821d5eb359fedbb4b9995f99f8794a94, type: 2}
+  - {fileID: 11400000, guid: d27b8945d2f5d9147beedefe5afe72c9, type: 2}
   Sequences:
   - {fileID: 11400000, guid: 815c61146d6080749b8f4f711e78c45f, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}

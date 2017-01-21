@@ -151,16 +151,22 @@ public class Player : AdvancedMonoBehaviour
 			if (isHit)
 			{
 				Debug.LogError(this.collidingHazard.Type);
-				this.animator.SetTrigger("Hit");
 				this.heartCount = Mathf.Max(this.heartCount - 1, 0);
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
-				if (this.heartCount == 0)
-				{
-					this.gameOverUI.Show();
-					Time.timeScale = 0f;
-					this.isDead = true;
-				}
-				this.collidingHazard.Collider.enabled = false;
+                if (this.heartCount == 0)
+                {
+                    this.gameOverUI.Show();
+                    //                    Time.timeScale = 0f;
+                    this.isDead = true;
+                    this.collidingHazard.OnPlayerDeadlyCollision();
+                    GameObject.Destroy(this.gameObject);
+                }
+                else
+                {
+                    this.animator.SetTrigger("Hit");
+                    this.collidingHazard.OnPlayerCollision();
+                }
+                this.collidingHazard.Collider.enabled = false;
 			}
 
 			if (isCapturingHeart)
@@ -189,4 +195,5 @@ public class Player : AdvancedMonoBehaviour
 		this.isAirborne = false;
 		this.animator.SetBool("IsAirborne", this.isAirborne);
 	}
+
 }
