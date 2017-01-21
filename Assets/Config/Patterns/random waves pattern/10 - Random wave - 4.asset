@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce4a735b4be9344196c2c3a920e431f, type: 3}
+  m_Name: 10 - Random wave - 4
+  m_EditorClassIdentifier: 
+  HazardTypes: 03000000010000000200000002000000
+  AuthorizeBonusOverMine: 1
+  AuthorizeHelicopterOverBonus: 1
+  AuthorizeHelicopterOverMine: 1
+  AuthorizeBonusOverBonus: 1

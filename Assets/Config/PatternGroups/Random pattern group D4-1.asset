@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830cb2793a7e8504195c3cebc28f581a, type: 3}
+  m_Name: Random pattern group D4-1
+  m_EditorClassIdentifier: 
+  Difficulty: 4
+  WavePatterns:
+  - {fileID: 11400000, guid: 9c9de059a809f9146a615548d1083917, type: 2}
+  - {fileID: 11400000, guid: 675a737ed72751b46b9e92eae7e22e41, type: 2}
+  - {fileID: 11400000, guid: 4461ed8680d154648b4cf119e3128ffb, type: 2}
+  - {fileID: 11400000, guid: d63159248fd07d44b99f2e960ec1f3f9, type: 2}
+  Disabled: 0
