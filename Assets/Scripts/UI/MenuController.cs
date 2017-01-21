@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class MenuController : MonoBehaviour
 	private int playerNumber;
 	private int randomSeed;
 
-	public void Start()
+	void Start()
 	{
 		SwitchToLanding();
 	}
@@ -32,7 +30,12 @@ public class MenuController : MonoBehaviour
 		playerNumber = number;
 		masterSeedSymbols[3].sprite = playerSymbolSprites[playerNumber - 2];
 
+		Game.Instance.SetLocalPlayerIndex(0);
+		Game.Instance.SetPlayerCount(playerNumber);
+
 		randomSeed = Random.Range(0, 64);
+		Game.Instance.GenerateLevel(randomSeed);
+
 		string base4seed = IntToBase4(randomSeed).PadLeft(3, '0');
 		masterSeedSymbols[0].sprite = playerSymbolSprites[(int)base4seed[0] - '0'];
 		masterSeedSymbols[1].sprite = playerSymbolSprites[(int)base4seed[1] - '0'];
@@ -85,5 +88,10 @@ public class MenuController : MonoBehaviour
 	public void SwitchToReady()
 	{
 		HideEverythingBut("Ready");
+	}
+
+	public void StartGame()
+	{
+		HideEverythingBut("🤔");
 	}
 }

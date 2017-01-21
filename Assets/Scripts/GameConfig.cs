@@ -10,8 +10,8 @@ public class GameConfig : ScriptableObject
 	public int InitPlayerHeartCount;
     public int MaxPlayerHeartCount;
 	public float JumpDuration;
-	public Color[] PlayerColors;
-	public Color NeutralColor;
+	//public Color[] PlayerColors;
+	//public Color NeutralColor;
 	public Sprite[] HazardSprites;
     public AudioClip[] HazardAudioSources;
     public RuntimeAnimatorController[] HazardAnimators;
