@@ -9,7 +9,7 @@ public class LifeDisplay : MonoBehaviour
 
     private List<GameObject> displayedLifeUnit;
 
-    private void Start()
+    private void Awake()
     {
         displayedLifeUnit = new List<GameObject>();
     }

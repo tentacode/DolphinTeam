@@ -8,6 +8,7 @@ public class Hazard : AdvancedMonoBehaviour
 	private SpriteRenderer spriteRenderer;
 
 	public HazardType Type { get; private set; }
+    public BoxCollider2D Collider { get; private set; }
 
 	[System.Serializable]
 	public enum HazardType
@@ -23,8 +24,9 @@ public class Hazard : AdvancedMonoBehaviour
 	public void Init(HazardType type, int colorIndex)
 	{
 		this.Type = type;
+        this.Collider = GetComponent<BoxCollider2D>();
 
-		if (Game.Instance.LocalPlayerIndex == colorIndex)
+        if (Game.Instance.LocalPlayerIndex == colorIndex)
 		{
 			// Hidden
 			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");

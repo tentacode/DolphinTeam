@@ -34,8 +34,8 @@ public class Player : AdvancedMonoBehaviour
 	{
 		this.spriteRenderer.color = this.gameConfig.PlayerColors[Game.Instance.LocalPlayerIndex];
 		this.heartCount = this.gameConfig.InitPlayerHeartCount;
-
-		this.gameOverUI.Hide();
+        this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
+        this.gameOverUI.Hide();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -55,7 +55,7 @@ public class Player : AdvancedMonoBehaviour
 	{
 		//Debug.LogFormat("OnTriggerExit2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
-		if (hazard == null || this.collidingHazard == null)
+		if (hazard == null)
 		{
 			return;
 		}
@@ -116,15 +116,19 @@ public class Player : AdvancedMonoBehaviour
 					death = true;
 					break;
 
-				case Hazard.HazardType.Heart:
+
+                    // ------------ BONUS
+                case Hazard.HazardType.Heart:
                     this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
                     this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
-                    this.collidingHazard = null;
+                    this.collidingHazard.Collider.enabled = false;
 					break;
 
 				case Hazard.HazardType.Treasure:
 					++this.treasureCount;
-					break;
+                    this.collidingHazard.Collider.enabled = false;
+                    break;
+                    // -------------------
 			}
 
 			if (death)
@@ -138,7 +142,7 @@ public class Player : AdvancedMonoBehaviour
                     Time.timeScale = 0f;
                     this.isDead = true;
                 }
-                this.collidingHazard = null;
+                this.collidingHazard.Collider.enabled = false;
             }
         }
 	}
