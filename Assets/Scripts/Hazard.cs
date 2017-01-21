@@ -46,11 +46,21 @@ public class Hazard : AdvancedMonoBehaviour
 
     public void OnPlayerDeadlyCollision()
     {
+		if (this.animator.runtimeAnimatorController == null)
+		{
+			return;
+		}
+
         this.animator.SetTrigger("Dead");
     }
 
     public void OnPlayerCollision()
     {
-        this.animator.SetTrigger("Touched");
+		if (this.animator.runtimeAnimatorController == null)
+		{
+			return;
+		}
+
+		this.animator.SetTrigger("Touched");
     }
 }

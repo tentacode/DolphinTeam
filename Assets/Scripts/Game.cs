@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
 		for (int sequenceIndex = 0; sequenceIndex < this.gameConfig.Sequences.Length; ++sequenceIndex)
 		{
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
-			Debug.LogWarningFormat("Sequence > {0}", sequence.name);
+			//Debug.LogWarningFormat("Sequence > {0}", sequence.name);
 
 			// Generate pattern groups
 			for (int waveGroupPatternNumber = 1; waveGroupPatternNumber <= sequence.WaveGroupCount; ++waveGroupPatternNumber)
@@ -45,8 +45,8 @@ public class Game : MonoBehaviour
 				float difficultyTime = (float)waveGroupPatternNumber / (float)sequence.WaveGroupCount;
 				float minDifficulty = sequence.MinDifficultyCurve.Evaluate(difficultyTime);
 				float maxDifficulty = sequence.MaxDifficultyCurve.Evaluate(difficultyTime);
-				Debug.LogFormat("minDifficulty > {0}", minDifficulty);
-				Debug.LogFormat("maxDifficulty > {0}", maxDifficulty);
+				//Debug.LogFormat("minDifficulty > {0}", minDifficulty);
+				//Debug.LogFormat("maxDifficulty > {0}", maxDifficulty);
 
 				// Filter pattern groups for difficulty
 				this.difficultyWaveGroupPatterns.Clear();
@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
 						this.difficultyWaveGroupPatterns.Add(waveGroupPattern);
 					}
 				}
-				Debug.LogFormat("difficultyWaveGroupPatterns.Count > {0}", this.difficultyWaveGroupPatterns.Count);
+				//Debug.LogFormat("difficultyWaveGroupPatterns.Count > {0}", this.difficultyWaveGroupPatterns.Count);
 
 				if (this.difficultyWaveGroupPatterns.Count < 1)
 				{
@@ -68,12 +68,12 @@ public class Game : MonoBehaviour
 
 				// Generate wave group
 				WaveGroupPattern difficultyWaveGroupPattern = this.difficultyWaveGroupPatterns[Random.Range(0, this.difficultyWaveGroupPatterns.Count)];
-				Debug.LogFormat("WaveGroup > {0}",  difficultyWaveGroupPattern.name);
+				//Debug.LogFormat("WaveGroup > {0}",  difficultyWaveGroupPattern.name);
 				for (int patternIndex = 0; patternIndex < difficultyWaveGroupPattern.WavePatterns.Length; ++patternIndex)
 				{
 					// Generate wave
 					WavePattern wavePattern = difficultyWaveGroupPattern.WavePatterns[patternIndex];
-					Debug.LogFormat("Wave > {0}", wavePattern.name);
+					//Debug.LogFormat("Wave > {0}", wavePattern.name);
 
 					float waveYPosition = this.gameConfig.WaveOffset * globalWaveNumber;
 
@@ -100,7 +100,7 @@ public class Game : MonoBehaviour
 			return;
 		}
 
-		Debug.LogFormat("Hazard > {0}", hazardType);
+		//Debug.LogFormat("Hazard > {0}", hazardType);
 
 		float hazardXPosition = (columnIndex - (this.gameConfig.ColumnCount / 2)) * this.gameConfig.MoveUnit;
 		int colorIndex = Random.Range(0, this.playerCount);
