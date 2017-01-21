@@ -73,4 +73,9 @@ public class Hazard : AdvancedMonoBehaviour
     {
         this.gameObject.layer = LayerMask.NameToLayer("Default");
     }
+
+    public void MakeInvisible()
+    {
+        this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
+    }
 }

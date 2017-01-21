@@ -33,6 +33,10 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
   - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}
   - {fileID: 22100000, guid: c4e5cbc892a15e44daea7c2f4dd879ab, type: 2}
+  - {fileID: 22100000, guid: 650f4bda18414864381e2209aadde809, type: 2}
+  - {fileID: 22100000, guid: 4dcee2347e61b2146ac5d668a23de7c2, type: 2}
+  - {fileID: 22100000, guid: f4fd0e7fe59c7c343a5c5485caeca721, type: 2}
+  - {fileID: 22100000, guid: 9cc31e1bddfe5ed4d877edd2b0c07342, type: 2}
   WaveGroupPatterns:
   - {fileID: 11400000, guid: 091d23864e24a21408ba4a0e0c0d28e7, type: 2}
   - {fileID: 11400000, guid: 57404f25972e90b449d0f9d1a6e01b31, type: 2}

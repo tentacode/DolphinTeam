@@ -182,6 +182,7 @@ public class Player : AdvancedMonoBehaviour
 				this.heartCount = Mathf.Min(this.heartCount + 1, gameConfig.MaxPlayerHeartCount);
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
 				this.collidingHazard.Collider.enabled = false;
+                this.collidingHazard.MakeInvisible();
 			}
 
 			if (isCapturingTreasure)
@@ -189,8 +190,9 @@ public class Player : AdvancedMonoBehaviour
 				++this.treasureCount;
 				this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
 				this.collidingHazard.Collider.enabled = false;
-			}
-		}
+                this.collidingHazard.MakeInvisible();
+            }
+        }
 	}
 
 	private IEnumerator Jump()
