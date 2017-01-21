@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 338f6b190e379494e9d629be330e3f04, type: 2}
-  playerCount: 2
+  playerCount: 3
   debugCamera: {fileID: 1408561340}
 --- !u!4 &188240276
 Transform:
