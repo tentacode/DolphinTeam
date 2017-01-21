@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 830cb2793a7e8504195c3cebc28f581a, type: 3}
-  m_Name: Pattern group hardcore
+  m_Name: Pattern group D4-1
   m_EditorClassIdentifier: 
   Difficulty: 10
   WavePatterns:
