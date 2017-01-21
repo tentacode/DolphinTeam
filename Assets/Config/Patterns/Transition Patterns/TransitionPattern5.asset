@@ -9,11 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40c75efe9644294b8772df03f348dcb, type: 3}
-  m_Name: New Pattern 3
+  m_Name: TransitionPattern5
   m_EditorClassIdentifier: 
-  GroundLeft: 3
-  GroundMiddle: 0
-  GroundRight: 0
+  GroundLeft: 4
+  GroundMiddle: 5
+  GroundRight: 5
   AirLeft: 0
   AirMiddle: 0
-  AirRight: 2
+  AirRight: 0
+  NoHazardHiding: 1
