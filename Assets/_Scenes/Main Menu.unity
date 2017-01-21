@@ -294,12 +294,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 783997683}
-        m_MethodName: SwitchToSeedDisplay
-        m_Mode: 1
+        m_MethodName: ChoosePlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -917,12 +917,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 783997683}
-        m_MethodName: SwitchToSeedDisplay
-        m_Mode: 1
+        m_MethodName: ChoosePlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1481,6 +1481,16 @@ MonoBehaviour:
   - {fileID: 748837449}
   - {fileID: 1071473462}
   initialPanel: {fileID: 1466645394}
+  masterSeedSymbols:
+  - {fileID: 313883308}
+  - {fileID: 193642159}
+  - {fileID: 1485941342}
+  - {fileID: 190207867}
+  playerSymbolSprites:
+  - {fileID: 21300000, guid: 348c2034c167c4fe8b1a5a2462a50f11, type: 3}
+  - {fileID: 21300002, guid: 348c2034c167c4fe8b1a5a2462a50f11, type: 3}
+  - {fileID: 21300004, guid: 348c2034c167c4fe8b1a5a2462a50f11, type: 3}
+  - {fileID: 21300006, guid: 348c2034c167c4fe8b1a5a2462a50f11, type: 3}
 --- !u!1 &809898034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,12 +1568,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 783997683}
-        m_MethodName: SwitchToSeedDisplay
-        m_Mode: 1
+        m_MethodName: ChoosePlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2034,12 +2044,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 783997683}
-        m_MethodName: SwitchToSeedDisplay
-        m_Mode: 1
+        m_MethodName: ChoosePlayerNumber
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2793,7 +2803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 5+
 --- !u!222 &1859497852
 CanvasRenderer:
   m_ObjectHideFlags: 0
