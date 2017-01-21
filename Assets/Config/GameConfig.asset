@@ -37,6 +37,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ffaa8ee99dce804e95812b9f7cd060d, type: 2}
   - {fileID: 11400000, guid: 82ea7d4ce0eb62b46bab2aaf760f462b, type: 2}
   - {fileID: 11400000, guid: 5b97217bb51457a49b9a2098407b24c6, type: 2}
+  - {fileID: 11400000, guid: 506b2da3e9e9cd4428f80c7187b10d11, type: 2}
+  - {fileID: 11400000, guid: 1029f0b4d4bd23740bc12eba6e1ebd3e, type: 2}
+  - {fileID: 11400000, guid: a6630ad90884c4e468bbbce1bcd2cba7, type: 2}
+  - {fileID: 11400000, guid: 8126ba4a88802f64ebbb216d45882804, type: 2}
+  - {fileID: 11400000, guid: a013366efa35dfd45a21e96393a17dfc, type: 2}
+  - {fileID: 11400000, guid: 821d5eb359fedbb4b9995f99f8794a94, type: 2}
+  - {fileID: 11400000, guid: d27b8945d2f5d9147beedefe5afe72c9, type: 2}
   Sequences:
   - {fileID: 11400000, guid: 815c61146d6080749b8f4f711e78c45f, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
