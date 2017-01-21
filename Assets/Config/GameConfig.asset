@@ -15,8 +15,8 @@ MonoBehaviour:
   MoveUnit: 100
   ColumnCount: 3
   WaveOffset: 500
-  InitPlayerHeartCount: 3
-  MaxPlayerHeartCount: 5
+  InitPlayerHeartCount: 2
+  MaxPlayerHeartCount: 3
   JumpDuration: 2
   PlayerColors:
   - {r: 1, g: 0, b: 0, a: 1}
@@ -39,7 +39,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b97217bb51457a49b9a2098407b24c6, type: 2}
   Sequences:
   - {fileID: 11400000, guid: 815c61146d6080749b8f4f711e78c45f, type: 2}
+  - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
   - {fileID: 11400000, guid: fe075b313c97bfe4b8a3780cd060b9a1, type: 2}
+  - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
   - {fileID: 11400000, guid: bb1c10d6b1c40484594bb1be8d840213, type: 2}
   HazardPrefab: {fileID: 1409025855768848, guid: 0e66c2e40c875634dbbdb860bad11c61,
     type: 2}

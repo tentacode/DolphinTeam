@@ -9,11 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e40c75efe9644294b8772df03f348dcb, type: 3}
-  m_Name: New Pattern 5
+  m_Name: 10-s-m-m-n-n-hl
   m_EditorClassIdentifier: 
   GroundLeft: 3
-  GroundMiddle: 5
-  GroundRight: 3
+  GroundMiddle: 1
+  GroundRight: 1
   AirLeft: 0
-  AirMiddle: 1
+  AirMiddle: 2
   AirRight: 0
+  NoHazardHiding: 0
