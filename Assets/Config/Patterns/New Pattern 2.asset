@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: New Pattern 2
   m_EditorClassIdentifier: 
   GroundLeft: 1
-  GroundMiddle: 4
+  GroundMiddle: 3
   GroundRight: 0
   AirLeft: 0
   AirMiddle: 2

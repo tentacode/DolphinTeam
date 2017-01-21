@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e40c75efe9644294b8772df03f348dcb, type: 3}
   m_Name: New Pattern 5
   m_EditorClassIdentifier: 
-  GroundLeft: 1
-  GroundMiddle: 4
-  GroundRight: 0
+  GroundLeft: 3
+  GroundMiddle: 5
+  GroundRight: 3
   AirLeft: 0
-  AirMiddle: 2
+  AirMiddle: 1
   AirRight: 0
