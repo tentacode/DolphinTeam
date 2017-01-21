@@ -10,8 +10,8 @@ public class RandomWavePattern : WavePattern
 	public bool AuthorizeHelicopterOverMine;
 	public bool AuthorizeBonusOverBonus;
 
-	private Hazard.HazardType[] groundHazards;
-	private Hazard.HazardType[] airHazards;
+	private Hazard.HazardType[] groundHazards = null;
+	private Hazard.HazardType[] airHazards = null;
 	private List<int> freeColumnIndexes = new List<int>();
 
 	public override void GetHazards(ref List<HazardSpawnConfig> hazardSpawnConfigs, GameConfig gameConfig)
@@ -19,19 +19,19 @@ public class RandomWavePattern : WavePattern
 		CollectionTools.Init(ref hazardSpawnConfigs);
 
 		// Reset wave slots
-		if (this.groundHazards == null)
+		if (this.groundHazards == null || this.groundHazards.Length != gameConfig.ColumnCount)
 		{
-			this.groundHazards = new Hazard.HazardType[gameConfig.ColumnCount];
+            this.groundHazards = new Hazard.HazardType[gameConfig.ColumnCount];
 		}
 
-		if (this.airHazards == null)
+		if (this.airHazards == null || this.airHazards.Length != gameConfig.ColumnCount)
 		{
 			this.airHazards = new Hazard.HazardType[gameConfig.ColumnCount];
 		}
 
 		for (int columnIndex = 0; columnIndex < gameConfig.ColumnCount; ++columnIndex)
 		{
-			this.groundHazards[columnIndex] = Hazard.HazardType.None;
+            this.groundHazards[columnIndex] = Hazard.HazardType.None;
 			this.airHazards[columnIndex] = Hazard.HazardType.None;
 		}
 
@@ -129,25 +129,32 @@ public class RandomWavePattern : WavePattern
 				}
 			}
 
-			// Place hazard
-			int freeColumnIndex = this.freeColumnIndexes[Random.Range(0, this.freeColumnIndexes.Count)];
-			switch (hazardType)
-			{
-				case Hazard.HazardType.Mine:
-				case Hazard.HazardType.Shark:
-				case Hazard.HazardType.GroundHeart:
-				case Hazard.HazardType.GroundTreasure:
-					this.groundHazards[freeColumnIndex] = hazardType;
-					break;
+            // Place hazard
+            if (this.freeColumnIndexes.Count < 1)
+            {
+                Debug.LogErrorFormat("{0} RandomWavePattern > Unable to spawn {1}, no free column!", this.name, hazardType);
+            }
+            else
+            {
+                int freeColumnIndex = this.freeColumnIndexes[Random.Range(0, this.freeColumnIndexes.Count)];
+                switch (hazardType)
+                {
+                    case Hazard.HazardType.Mine:
+                    case Hazard.HazardType.Shark:
+                    case Hazard.HazardType.GroundHeart:
+                    case Hazard.HazardType.GroundTreasure:
+                        this.groundHazards[freeColumnIndex] = hazardType;
+                        break;
 
-				case Hazard.HazardType.Helicopter:
-				case Hazard.HazardType.AirHeart:
-				case Hazard.HazardType.AirTreasure:
-					this.airHazards[freeColumnIndex] = hazardType;
-					break;
-			}
+                    case Hazard.HazardType.Helicopter:
+                    case Hazard.HazardType.AirHeart:
+                    case Hazard.HazardType.AirTreasure:
+                        this.airHazards[freeColumnIndex] = hazardType;
+                        break;
+                }
 
-			hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = hazardType, ColumnIndex = freeColumnIndex });
-		}
+                hazardSpawnConfigs.Add(new HazardSpawnConfig() { HazardType = hazardType, ColumnIndex = freeColumnIndex });
+            }
+        }
 	}
 }
