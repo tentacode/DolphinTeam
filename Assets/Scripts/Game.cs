@@ -9,8 +9,6 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private GameConfig gameConfig;
 	[SerializeField]
-	private int seed;
-	[SerializeField]
 	private int playerCount;
 	[SerializeField]
 	private Camera debugCamera;
@@ -25,10 +23,14 @@ public class Game : MonoBehaviour
 		Game.Instance = this;
 	}
 
-	//private void Start()
-	public void GenerateLevel()
+	public void SetLocalPlayerIndex(int playerIndex)
 	{
-		Random.InitState(this.seed);
+		this.LocalPlayerIndex = playerIndex;
+	}
+
+	public void GenerateLevel(int seed)
+	{
+		Random.InitState(seed);
 
 		float waveYPosition = this.gameConfig.FirstWaveOffset;
 
@@ -108,12 +110,6 @@ public class Game : MonoBehaviour
 
 		Hazard hazard = hazardGO.GetComponent<Hazard>();
 		hazard.Init(hazardType, colorIndex, noHazardHiding);
-	}
-
-	public void SetLocalPlayerIndex(int playerIndex)
-	{
-		this.LocalPlayerIndex = playerIndex;
-		//Player.Instance.SetLocalPlayerIndex(playerIndex);
 	}
 
 	public void Restart()
