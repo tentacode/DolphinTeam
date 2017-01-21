@@ -28,6 +28,7 @@ public class Game : MonoBehaviour
 
 	private void Start()
 	{
+		Time.timeScale = 1f;
 		Random.InitState(this.seed);
 
 		Hazard.HazardType[] hazardTypes = System.Enum.GetValues(typeof(Hazard.HazardType)) as Hazard.HazardType[];
@@ -35,7 +36,7 @@ public class Game : MonoBehaviour
 		int stepCount = Random.Range(this.gameConfig.MinStepCount, this.gameConfig.MaxStepCount + 1);
 		for (int stepIndex = 0; stepIndex < stepCount; ++stepIndex)
 		{
-			GameObject stepGO = GameObject.Instantiate(this.gameConfig.StepPrefab, this.gameConfig.StepOffset * stepIndex * Vector3.up, Quaternion.identity);
+			GameObject stepGO = GameObject.Instantiate(this.gameConfig.StepPrefab, this.gameConfig.StepOffset * (stepIndex + 1) * Vector3.up, Quaternion.identity);
 			Step step = stepGO.GetComponent<Step>();
 
 			this.freeColumns = new List<int>();

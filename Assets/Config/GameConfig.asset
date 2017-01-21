@@ -14,8 +14,8 @@ MonoBehaviour:
   LevelSpeed: 100
   MoveUnit: 70
   ColumnCount: 3
-  MinStepCount: 10
-  MaxStepCount: 15
+  MinStepCount: 15
+  MaxStepCount: 20
   StepOffset: 300
   MinHazardCount: 1
   MaxHazardCount: 3

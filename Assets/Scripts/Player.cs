@@ -13,6 +13,8 @@ public class Player : AdvancedMonoBehaviour
 	private float jumpDuration;
 	[SerializeField]
 	private Animator animator;
+	[SerializeField]
+	private RectTransform gameOverUI;
 
 	private int hPosition = 0;
 	private Hazard collidingHazard;
@@ -27,6 +29,8 @@ public class Player : AdvancedMonoBehaviour
 	private void Start()
 	{
 		this.spriteRenderer.color = this.gameConfig.Colors[Game.Instance.LocalPlayerIndex];
+
+		this.gameOverUI.Hide();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -106,6 +110,8 @@ public class Player : AdvancedMonoBehaviour
 			if (death)
 			{
 				Debug.LogError("DEATH MOTHER FUCKER!!!");
+				this.gameOverUI.Show();
+				Time.timeScale = 0f;
 			}
 		}
 	}
