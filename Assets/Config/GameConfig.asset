@@ -41,11 +41,7 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
   - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}
   WaveGroupPatterns:
-  - {fileID: 11400000, guid: 7ffaa8ee99dce804e95812b9f7cd060d, type: 2}
-  - {fileID: 11400000, guid: 82ea7d4ce0eb62b46bab2aaf760f462b, type: 2}
-  - {fileID: 11400000, guid: 5b97217bb51457a49b9a2098407b24c6, type: 2}
-  - {fileID: 11400000, guid: f81ec382304d3cb40936d81db2ad4150, type: 2}
-  - {fileID: 11400000, guid: 6dc36a5f5a4bb0848922bc2b1cdfb737, type: 2}
+  - {fileID: 11400000, guid: 7de58447d2043c94782a6af2fd52acb2, type: 2}
   - {fileID: 11400000, guid: 091d23864e24a21408ba4a0e0c0d28e7, type: 2}
   - {fileID: 11400000, guid: 57404f25972e90b449d0f9d1a6e01b31, type: 2}
   - {fileID: 11400000, guid: b50706033a986e34d9c371e3f19b8e33, type: 2}
@@ -59,6 +55,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a013366efa35dfd45a21e96393a17dfc, type: 2}
   - {fileID: 11400000, guid: 821d5eb359fedbb4b9995f99f8794a94, type: 2}
   - {fileID: 11400000, guid: d27b8945d2f5d9147beedefe5afe72c9, type: 2}
+  - {fileID: 11400000, guid: f81ec382304d3cb40936d81db2ad4150, type: 2}
   Sequences:
   - {fileID: 11400000, guid: 815c61146d6080749b8f4f711e78c45f, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
