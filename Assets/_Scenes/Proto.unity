@@ -1005,10 +1005,34 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 18b3eb5ed6d0df14fa1d3e23a8788d47, type: 2}
+      objectReference: {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5,
+        type: 2}
     - target: {fileID: 212751170200390598, guid: 0e66c2e40c875634dbbdb860bad11c61,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409025855768848, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409025855768848, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212751170200390598, guid: 0e66c2e40c875634dbbdb860bad11c61,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212751170200390598, guid: 0e66c2e40c875634dbbdb860bad11c61,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212751170200390598, guid: 0e66c2e40c875634dbbdb860bad11c61,
+        type: 2}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
