@@ -18,8 +18,10 @@ public class Player : AdvancedMonoBehaviour
 
 	private int hPosition = 0;
 	private Hazard collidingHazard;
-
-	public bool AirBorn { get; private set; }
+	private bool isAirBorn;
+	private bool isDead;
+	private int heartCount;
+	private int treasureCount;
 
 	public Player()
 	{
@@ -28,14 +30,15 @@ public class Player : AdvancedMonoBehaviour
 
 	private void Start()
 	{
-		this.spriteRenderer.color = this.gameConfig.Colors[Game.Instance.LocalPlayerIndex];
+		this.spriteRenderer.color = this.gameConfig.PlayerColors[Game.Instance.LocalPlayerIndex];
+		this.heartCount = this.gameConfig.InitPlayerHeartCount;
 
 		this.gameOverUI.Hide();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
+		//Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
 		if (hazard == null)
 		{
@@ -43,12 +46,12 @@ public class Player : AdvancedMonoBehaviour
 		}
 
 		this.collidingHazard = hazard;
-		Debug.LogWarning(this.collidingHazard.Type);
+		//Debug.LogWarning(this.collidingHazard.Type);
 	}
 
 	private void OnTriggerExit2D(Collider2D other)
 	{
-		Debug.LogFormat("OnTriggerExit2D {0}", other.name);
+		//Debug.LogFormat("OnTriggerExit2D {0}", other.name);
 		Hazard hazard = other.GetComponent<Hazard>();
 		if (hazard == null)
 		{
@@ -63,17 +66,22 @@ public class Player : AdvancedMonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyUp(KeyCode.LeftArrow))
+		if (this.isDead)
+		{
+			return;
+		}
+
+		if (Input.GetKeyDown(KeyCode.LeftArrow))
 		{
 			// Move left
 			--this.hPosition;
 		}
-		else if (Input.GetKeyUp(KeyCode.RightArrow))
+		else if (Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			// Move right
 			++this.hPosition;
 		}
-		else if (Input.GetKeyUp(KeyCode.UpArrow))
+		else if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			// Jump
 			this.StartCoroutine(this.Jump());
@@ -95,35 +103,44 @@ public class Player : AdvancedMonoBehaviour
 			switch (this.collidingHazard.Type)
 			{
 				case Hazard.HazardType.Mine:
-					death = !this.AirBorn;
+					death = !this.isAirBorn;
 					break;
 
 				case Hazard.HazardType.Helicopter:
-					death = this.AirBorn;
+					death = this.isAirBorn;
 					break;
 
 				case Hazard.HazardType.Shark:
 					death = true;
 					break;
+
+				case Hazard.HazardType.Heart:
+					++this.heartCount;
+					break;
+
+				case Hazard.HazardType.Treasure:
+					++this.treasureCount;
+					break;
 			}
 
 			if (death)
 			{
-				Debug.LogError("DEATH MOTHER FUCKER!!!");
+				Debug.LogError(this.collidingHazard.Type);
 				this.gameOverUI.Show();
 				Time.timeScale = 0f;
+				this.isDead = true;
 			}
 		}
 	}
 
 	private IEnumerator Jump()
 	{
-		this.AirBorn = true;
+		this.isAirBorn = true;
 		this.animator.SetTrigger("Jump");
 
 		yield return new WaitForSeconds(this.jumpDuration);
 
-		this.AirBorn = false;
+		this.isAirBorn = false;
 		this.animator.SetTrigger("Land");
 	}
 }

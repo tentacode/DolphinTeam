@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class EditorTools
 {
-	[MenuItem("Tools/GFX47/Save Project %s")]
+	[MenuItem("Tools/Save Project %s")]
 	public static void SaveProject()
 	{
 		AssetDatabase.SaveAssets();
 	}
 
-	[MenuItem("Tools/GFX47/GCCollect %g")]
+	[MenuItem("Tools/GCCollect %g")]
 	public static void GCCollect()
 	{
 		System.GC.Collect();
 	}
 
-	[MenuItem("Tools/GFX47/Set all ScriptableObjects dirty")]
+	[MenuItem("Tools/Set all ScriptableObjects dirty")]
 	public static void SetAllScriptableObjectsDirty()
 	{
 		Object[] scriptableObjects = Resources.LoadAll(string.Empty, typeof(ScriptableObject));

@@ -12,9 +12,12 @@ public class Hazard : AdvancedMonoBehaviour
 	[System.Serializable]
 	public enum HazardType
 	{
+		None,
 		Mine,
 		Helicopter,
 		Shark,
+		Heart,
+		Treasure,
 	}
 
 	[System.Serializable]
@@ -32,8 +35,8 @@ public class Hazard : AdvancedMonoBehaviour
 			this.gameObject.layer = LayerMask.NameToLayer("HiddenHazard");
 		}
 
-		this.spriteRenderer.sprite = this.gameConfig.Sprites[(int)hazardConfig.Type];
-		this.spriteRenderer.color = this.gameConfig.Colors[hazardConfig.ColorIndex];
+		this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(hazardConfig.Type);
+		this.spriteRenderer.color = this.gameConfig.PlayerColors[hazardConfig.ColorIndex];
 
 		this.Type = hazardConfig.Type;
 	}

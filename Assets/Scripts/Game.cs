@@ -57,7 +57,10 @@ public class Game : MonoBehaviour
 				hazardConfig.ColorIndex = Random.Range(0, this.playerCount);
 				hazardConfig.Type = hazardTypes[Random.Range(0, hazardTypes.Length)];
 
-				hazardConfigs[columnIndex] = hazardConfig;
+				if (hazardConfig.Type != Hazard.HazardType.None)
+				{
+					hazardConfigs[columnIndex] = hazardConfig;
+				}
 			}
 
 			step.Init(hazardConfigs);
