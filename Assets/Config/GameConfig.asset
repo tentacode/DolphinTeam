@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b412ac449e34b84abfa760a7b34266d, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  DebugMode: 0
+  DebugMode: 1
   ScrollSpeed: 100
   MoveUnit: 100
   ColumnCount: 3
@@ -77,6 +77,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fe075b313c97bfe4b8a3780cd060b9a1, type: 2}
   - {fileID: 11400000, guid: 284820c8f7e8e2b47a616a7d53735c82, type: 2}
   - {fileID: 11400000, guid: bb1c10d6b1c40484594bb1be8d840213, type: 2}
+  - {fileID: 11400000, guid: 3f0236d2581f3944fa71c431deee4f52, type: 2}
   HazardPrefab: {fileID: 1924899436941520, guid: 0e66c2e40c875634dbbdb860bad11c61,
     type: 2}
   WavePrefab: {fileID: 1409025855768848, guid: ff716f5c8641fe64f99e35ee5ce8d0b3, type: 2}

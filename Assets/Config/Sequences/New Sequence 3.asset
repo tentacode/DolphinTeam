@@ -14,7 +14,7 @@ MonoBehaviour:
   Title: READY ?
   SubTitle: GO
   TitleTriggerOffset: -600
-  WaveSize: 300
+  WaveSize: 350
   WaveGroupCount: 4
   MinDifficultyCurve:
     serializedVersion: 2
