@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
 	private Animator sequenceTitleAnimator;
 	[SerializeField]
 	private string sequenceTitleDisplayTriggerName = "Display";
+	[SerializeField]
+	private LevelScroller levelScroller;
 
 	private int playerCount;
 
@@ -50,6 +52,11 @@ public class Game : MonoBehaviour
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 			sequence.SpawnWaveGroups(this.gameConfig, this.playerCount, ref waveYPosition);
 		}
+	}
+
+	public void StartGame()
+	{
+		this.levelScroller.enabled = true;
 	}
 
 	public void Restart()

@@ -202,6 +202,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 212751170200390598}
   audioPlayer: {fileID: 114933776149264832}
   animator: {fileID: 95253272035163554}
+  groundSortingLayerName: GroundHazard
+  airSortingLayerName: AirHazard
 --- !u!114 &114933776149264832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ef41673503c94097c78b8791b5122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clips: []
   audioSource: {fileID: 82565468912079142}
 --- !u!212 &212751170200390598
 SpriteRenderer:
