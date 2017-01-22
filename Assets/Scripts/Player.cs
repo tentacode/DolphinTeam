@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : AdvancedMonoBehaviour
 {
@@ -19,17 +18,17 @@ public class Player : AdvancedMonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioPlayer audioPlayer;
-
-    [SerializeField]
+	[SerializeField]
 	private string groundedSortingLayerName = "GroundedPlayer";
 	[SerializeField]
 	private string airborneSortingLayerName = "AirbornePlayer";
 	[SerializeField]
 	private string jumpAnimTriggerName = "Jump";
 
-	private int hPosition = 0;
+	private int columnIndex = 1;
 	private Hazard collidingHazard;
 	private bool isAirborne;
+	private bool isMoving;
 	private bool isDead;
 	private int heartCount;
 	private int treasureCount;
@@ -98,18 +97,20 @@ public class Player : AdvancedMonoBehaviour
 			return;
 		}
 
-		if (!this.isAirborne)
+		if (!this.isAirborne && !this.isMoving)
 		{
 			if (DolphinInput.IsGoingLeft())
 			{
 				// Move left
-				--this.hPosition;
+				--this.columnIndex;
+				this.isMoving = true;
 			}
 
 			if (DolphinInput.IsGoingRight())
 			{
 				// Move right
-				++this.hPosition;
+				++this.columnIndex;
+				this.isMoving = true;
 			}
 
 			if (DolphinInput.IsJumping())
@@ -119,14 +120,22 @@ public class Player : AdvancedMonoBehaviour
 			}
 		}
 
-		this.hPosition = Mathf.Clamp(this.hPosition, -(this.gameConfig.ColumnCount / 2), this.gameConfig.ColumnCount / 2);
+		this.columnIndex = Mathf.Clamp(this.columnIndex, 0, this.gameConfig.ColumnCount - 1);
 
+		float xTargetPosition = (float)(this.columnIndex - this.gameConfig.ColumnCount / 2) * this.gameConfig.ColumnWidth;
+		float xPosition = Mathf.Lerp(this.Tfm.localPosition.x, xTargetPosition, Time.deltaTime * this.gameConfig.PlayerMoveSpeed);
 		this.Tfm.localPosition = new Vector3
 		(
-			(float)this.hPosition * this.gameConfig.MoveUnit,
+			xPosition,
 			this.Tfm.localPosition.y,
 			this.Tfm.localPosition.z
 		);
+
+		if (Mathf.Abs(xPosition - xTargetPosition) <= this.gameConfig.PlayerMoveReachDistance)
+		{
+			// Move is over
+			this.isMoving = false;
+		}
 
 		// Check hazard collision
 		if (this.collidingHazard != null)
