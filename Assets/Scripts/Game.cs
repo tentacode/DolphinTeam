@@ -9,8 +9,6 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private GameConfig gameConfig;
 	[SerializeField]
-	private int playerCount;
-	[SerializeField]
 	private Camera debugCamera;
 	[SerializeField]
 	private Text sequenceTitleLabel;
@@ -21,8 +19,9 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private string sequenceTitleDisplayTriggerName = "Display";
 
+	private int playerCount;
+
 	public int LocalPlayerIndex { get; private set; }
-	public int PlayerCount { get; private set; }
 
 	public Game()
 	{
@@ -36,7 +35,7 @@ public class Game : MonoBehaviour
 
 	public void SetPlayerCount(int playerCount)
 	{
-		this.PlayerCount = playerCount;
+		this.playerCount = playerCount;
 	}
 
 	public void GenerateLevel(int seed)
