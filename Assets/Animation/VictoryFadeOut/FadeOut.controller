@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: GameOver
+  m_Name: FadeOut
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -39,7 +39,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4ce8780979b70014da80b55268d8baba, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4aac1d926c70b2647904d86e3db6efce, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
