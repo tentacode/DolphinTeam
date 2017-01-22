@@ -40,10 +40,8 @@ public class GameConfig : ScriptableObject
 		return null;
 	}
 
-    public AudioClip GetHazardAudio(Hazard.HazardType hazardType)
+    public AudioClip GetHazardAudio(string hazardTypeName)
     {
-        string hazardTypeName = hazardType.ToString();
-
         for (int i = 0; i < this.HazardAudioSources.Length; i++)
         {
             AudioClip hazardAudio = this.HazardAudioSources[i];

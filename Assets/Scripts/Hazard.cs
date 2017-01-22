@@ -7,7 +7,7 @@ public class Hazard : AdvancedMonoBehaviour
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioPlayer audioPlayer;
     [SerializeField]
     private Animator animator;
 
@@ -32,21 +32,28 @@ public class Hazard : AdvancedMonoBehaviour
 		this.Type = type;
         this.Collider = GetComponent<BoxCollider2D>();
 
+        this.audioPlayer.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
+        this.audioPlayer.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
+
         if (!noHazardHiding && Game.Instance.LocalPlayerIndex != playerIndex)
 		{
 			// Hidden
 			this.MakeInvisible();
 		}
+        else
+        {
+            this.audioPlayer.PlayIdle();
+        }
 
         this.animator.runtimeAnimatorController = this.gameConfig.GetHazardAnimator(this.Type);
         if (this.animator.runtimeAnimatorController == null)
         {
             this.spriteRenderer.sprite = this.gameConfig.GetHazardSprite(this.Type);
         }
-        this.audioSource.clip = this.gameConfig.GetHazardAudio(this.Type);
-		//this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
 
-		switch (this.Type)
+        //this.spriteRenderer.color = noHazardHiding ? this.gameConfig.NeutralColor : this.gameConfig.PlayerColors[colorIndex];
+
+        switch (this.Type)
 		{
 			case HazardType.Helicopter:
 			case HazardType.AirHeart:
@@ -65,8 +72,8 @@ public class Hazard : AdvancedMonoBehaviour
 		{
 			return;
 		}
-        this.audioSource.Play();
         this.animator.SetTrigger("Dead");
+        this.audioPlayer.PlayTouched();
         MakeVisible();
     }
 
@@ -76,8 +83,8 @@ public class Hazard : AdvancedMonoBehaviour
 		{
 			return;
 		}
-        this.audioSource.Play();
 		this.animator.SetTrigger("Touched");
+        this.audioPlayer.PlayTouched();
         MakeVisible();
     }
 

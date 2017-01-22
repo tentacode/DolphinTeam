@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1557,6 +1557,7 @@ GameObject:
   - component: {fileID: 1152215831}
   - component: {fileID: 1152215830}
   - component: {fileID: 1152215834}
+  - component: {fileID: 1152215835}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1639,6 +1640,7 @@ MonoBehaviour:
   lifeDisplay: {fileID: 1737026036}
   treasureDisplay: {fileID: 534883078}
   audioSource: {fileID: 1152215834}
+  audioPlayer: {fileID: 1152215835}
 --- !u!82 &1152215834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1662,9 +1664,9 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassEffects: 1
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1719,6 +1721,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1152215835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152215829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824ef41673503c94097c78b8791b5122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: d66e35462771d91479c0eb5d06ed14ce, type: 3}
+  - {fileID: 8300000, guid: 098620ffae5c1254a97b8ea5ddba15ec, type: 3}
+  audioSource: {fileID: 1152215834}
 --- !u!1 &1208741163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1884,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1221764575}
+--- !u!1001 &1250931747
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944392739867178, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924899436941520, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0e66c2e40c875634dbbdb860bad11c61, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1408561339
 GameObject:
   m_ObjectHideFlags: 0
