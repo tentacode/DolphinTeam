@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Level : AdvancedMonoBehaviour
+public class LevelScroller : AdvancedMonoBehaviour
 {
 	[SerializeField]
 	private GameConfig gameConfig;
