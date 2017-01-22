@@ -48,7 +48,10 @@ TagManager:
   - name: Wave
     uniqueID: 1655328253
     locked: 0
-  - name: GroundHazards
+  - name: PlayerShadow
+    uniqueID: 3249143447
+    locked: 0
+  - name: GroundHazard
     uniqueID: 3738153065
     locked: 0
   - name: GroundedPlayer
@@ -57,6 +60,6 @@ TagManager:
   - name: AirbornePlayer
     uniqueID: 755371359
     locked: 0
-  - name: AirHazards
+  - name: AirHazard
     uniqueID: 4002628641
     locked: 0

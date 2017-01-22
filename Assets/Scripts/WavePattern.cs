@@ -17,7 +17,7 @@ public class WavePattern : ScriptableObject
 	{
 		//if (gameConfig.DebugMode) Debug.LogFormat("Wave = {0}", this.name);
 
-		GameObject waveGO = GameObject.Instantiate(gameConfig.WavePrefab, waveYPosition * Vector3.up + gameConfig.WavePrefab.transform.position.z * Vector3.forward, Quaternion.identity);
+		GameObject waveGO = GameObject.Instantiate(gameConfig.WavePrefab, waveYPosition * Vector3.up, Quaternion.identity);
 		waveGO.name = string.Format("Wave_{0}", this.name);
 
 		this.GetHazards(ref this.waveHazardSpawnConfigs, gameConfig);
@@ -29,7 +29,7 @@ public class WavePattern : ScriptableObject
 			float hazardXPosition = (hazardSpawnConfig.ColumnIndex - (gameConfig.ColumnCount / 2)) * gameConfig.MoveUnit;
 			int playerIndex = Random.Range(0, playerCount);
 
-			GameObject hazardGO = GameObject.Instantiate(gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up + gameConfig.HazardPrefab.transform.position.z * Vector3.forward, Quaternion.identity);
+			GameObject hazardGO = GameObject.Instantiate(gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up, Quaternion.identity);
 			hazardGO.name = string.Format("Hazard_{0}_Player{1}", hazardSpawnConfig.HazardType, playerIndex + 1);
 
 			Hazard hazard = hazardGO.GetComponent<Hazard>();
