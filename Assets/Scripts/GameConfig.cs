@@ -4,8 +4,10 @@
 public class GameConfig : ScriptableObject
 {
 	public bool DebugMode;
+	public float PlayerMoveSpeed;
+	public float PlayerMoveReachDistance;
 	public float ScrollSpeed;
-	public float MoveUnit;
+	public float ColumnWidth;
 	public int ColumnCount;
 	public float FirstWaveOffset;
 	public int InitPlayerHeartCount;
