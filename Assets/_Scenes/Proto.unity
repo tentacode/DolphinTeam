@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b9f8b956a6a9fc942afdd694696d9cc8, type: 3}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1160,6 +1160,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 224005806596185176, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1272,13 +1277,38 @@ Prefab:
     - target: {fileID: 224656704809759358, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -0.4552002
+      value: -0.45196533
       objectReference: {fileID: 0}
     - target: {fileID: 114446551197560440, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
       propertyPath: gameUI
       value: 
       objectReference: {fileID: 197146431}
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 188240278}
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415447381551722, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
   m_IsPrefabParent: 0

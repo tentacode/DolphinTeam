@@ -79,12 +79,6 @@ public class Game : MonoBehaviour
 		this.levelScroller.enabled = true;
 		this.inputManager.enabled = true;
 		this.IsStarted = true;
-
-		if (this.LocalPlayerIndex == 0)
-		{
-			// Host
-			this.musicAudioSource.Play();
-		}
 	}
 
 	public void Restart()
