@@ -24,7 +24,7 @@ public class LifeDisplay : MonoBehaviour
                 GameObject newDisplayedLifeUnit = GameObject.Instantiate(this.lifeUnitPrefab);
                 RectTransform newTransform = newDisplayedLifeUnit.GetComponent<RectTransform>();
                 newTransform.SetParent(this.transform);
-                newTransform.anchoredPosition = new Vector2(this.displayedLifeUnit.Count * 30.0f, 0.0f);
+                newTransform.anchoredPosition = new Vector2(this.displayedLifeUnit.Count * 82.0f, 0.0f);
                 this.displayedLifeUnit.Add(newDisplayedLifeUnit);
             }
         }
