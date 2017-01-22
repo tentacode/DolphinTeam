@@ -204,6 +204,7 @@ MonoBehaviour:
   animator: {fileID: 95253272035163554}
   groundSortingLayerName: GroundHazard
   airSortingLayerName: AirHazard
+  airYOffset: 40
 --- !u!114 &114933776149264832
 MonoBehaviour:
   m_ObjectHideFlags: 1

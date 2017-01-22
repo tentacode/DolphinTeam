@@ -166,18 +166,18 @@ public class Player : AdvancedMonoBehaviour
 
 			if (isHit)
 			{
-                Debug.LogError(this.collidingHazard.Type);
+                //Debug.LogWarning(this.collidingHazard.Type);
                 this.hasBeenHit = true;
                 this.heartCount = Mathf.Max(this.heartCount - 1, 0);
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
-                if (this.heartCount == 0)
+				if (this.heartCount == 0)
                 {
                     this.audioPlayer.PlayClip("PlayerHit");
                     this.gameOverUI.Show();
                     //                    Time.timeScale = 0f;
                     this.isDead = true;
                     this.collidingHazard.OnPlayerDeadlyCollision();
-                    GameObject.Destroy(this.gameObject);
+					GameObject.Destroy(this.gameObject);
                 }
                 else
                 {
@@ -185,7 +185,9 @@ public class Player : AdvancedMonoBehaviour
                     this.audioPlayer.PlayClip("PlayerHit");
                     this.collidingHazard.OnPlayerCollision();
                 }
-                this.collidingHazard.Collider.enabled = false;
+
+				this.collidingHazard.Collider.enabled = false;
+				this.collidingHazard = null;
 			}
 
 			if (isCapturingHeart)
@@ -194,6 +196,7 @@ public class Player : AdvancedMonoBehaviour
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
 				this.collidingHazard.Collider.enabled = false;
                 this.collidingHazard.MakeInvisible();
+				this.collidingHazard = null;
 			}
 
 			if (isCapturingTreasure)
@@ -202,8 +205,9 @@ public class Player : AdvancedMonoBehaviour
 				this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
 				this.collidingHazard.Collider.enabled = false;
                 this.collidingHazard.MakeInvisible();
-            }
-        }
+				this.collidingHazard = null;
+			}
+		}
 	}
 
 	private void Jump()

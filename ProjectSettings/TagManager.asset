@@ -48,9 +48,6 @@ TagManager:
   - name: Wave
     uniqueID: 1655328253
     locked: 0
-  - name: PlayerShadow
-    uniqueID: 3249143447
-    locked: 0
   - name: GroundHazard
     uniqueID: 3738153065
     locked: 0
