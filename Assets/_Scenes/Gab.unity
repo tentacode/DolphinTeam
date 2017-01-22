@@ -999,26 +999,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1616703079}
-    - target: {fileID: 114350961464252806, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerSymbolUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 114350961464252806, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202844950487140, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayerSymbolDown
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202844950487140, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
   m_IsPrefabParent: 0

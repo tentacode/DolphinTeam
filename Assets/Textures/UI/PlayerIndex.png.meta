@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 2f18e2326dbfc4dc28cf30fd5a42c827
-timeCreated: 1485074632
+timeCreated: 1485077614
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerCount_0
-    21300002: PlayerCount_1
-    21300004: PlayerCount_2
-    21300006: PlayerCount_3
+    21300000: PlayerIndex_0
+    21300002: PlayerIndex_1
+    21300004: PlayerIndex_2
+    21300006: PlayerIndex_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerCount_0
+      name: PlayerIndex_0
       rect:
         serializedVersion: 2
         x: 0
@@ -106,12 +106,12 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerCount_1
+      name: PlayerIndex_1
       rect:
         serializedVersion: 2
         x: 16
@@ -119,12 +119,12 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerCount_2
+      name: PlayerIndex_2
       rect:
         serializedVersion: 2
         x: 32
@@ -132,12 +132,12 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PlayerCount_3
+      name: PlayerIndex_3
       rect:
         serializedVersion: 2
         x: 48
@@ -145,7 +145,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
