@@ -703,7 +703,7 @@ Prefab:
     - target: {fileID: 224596941880785208, guid: d173eaf47d1d6ae48bf74e9aa24a6d4d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -130
       objectReference: {fileID: 0}
     - target: {fileID: 224596941880785208, guid: d173eaf47d1d6ae48bf74e9aa24a6d4d,
         type: 2}
@@ -953,8 +953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 394, y: 632}
+  m_AnchoredPosition: {x: 0, y: 61}
+  m_SizeDelta: {x: 570, y: 101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301168557
 MonoBehaviour:
@@ -979,19 +979,16 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6dcb269402b04764e8dece0bdff3815c, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 200
+    m_MaxSize: 299
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GAME OVER
-
-
-'
+  m_Text: GAME OVER
 --- !u!222 &301168558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1279,6 +1276,16 @@ Prefab:
       propertyPath: gameUI
       value: 
       objectReference: {fileID: 197146431}
+    - target: {fileID: 224726900280866626, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224731022321203520, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.2199707
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
   m_IsPrefabParent: 0
@@ -1298,7 +1305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &512992863
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2022,8 +2029,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 394, y: 632}
+  m_AnchoredPosition: {x: 0, y: -30}
+  m_SizeDelta: {x: 372, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869988190
 MonoBehaviour:
@@ -2048,9 +2055,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 6dcb269402b04764e8dece0bdff3815c, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 200
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
