@@ -2505,6 +2505,19 @@ Prefab:
       propertyPath: treasureDisplay
       value: 
       objectReference: {fileID: 534883078}
+    - target: {fileID: 1484147330347216, guid: 41fe67d23c2751241a7c1bc212c96071, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774986288805626, guid: 41fe67d23c2751241a7c1bc212c96071, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212471055002668344, guid: 41fe67d23c2751241a7c1bc212c96071,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41fe67d23c2751241a7c1bc212c96071, type: 2}
   m_IsPrefabParent: 0
