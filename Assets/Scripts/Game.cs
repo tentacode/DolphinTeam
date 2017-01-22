@@ -32,16 +32,19 @@ public class Game : MonoBehaviour
 
 	public void SetLocalPlayerIndex(int playerIndex)
 	{
+		Debug.Log("Local player index is " + playerIndex);
 		this.LocalPlayerIndex = playerIndex;
 	}
 
 	public void SetPlayerCount(int playerCount)
 	{
+		Debug.Log("Player count is " + playerCount);
 		this.playerCount = playerCount;
 	}
 
 	public void GenerateLevel(int seed)
 	{
+		Debug.Log("Seed is " + seed);
 		Random.InitState(seed);
 
 		float waveYPosition = this.gameConfig.FirstWaveOffset;
