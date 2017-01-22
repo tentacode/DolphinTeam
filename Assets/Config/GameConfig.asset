@@ -16,8 +16,8 @@ MonoBehaviour:
   MoveUnit: 100
   ColumnCount: 3
   FirstWaveOffset: 1000
-  InitPlayerHeartCount: 2
-  MaxPlayerHeartCount: 3
+  InitPlayerHeartCount: 10
+  MaxPlayerHeartCount: 10
   JumpDuration: 2
   HazardSprites:
   - {fileID: 21300000, guid: 0c81e0aecddf01644870f7d32d9e02f6, type: 3}
@@ -77,3 +77,5 @@ MonoBehaviour:
   HazardPrefab: {fileID: 1924899436941520, guid: 0e66c2e40c875634dbbdb860bad11c61,
     type: 2}
   WavePrefab: {fileID: 1409025855768848, guid: ff716f5c8641fe64f99e35ee5ce8d0b3, type: 2}
+  SequenceTitlePrefab: {fileID: 1409025855768848, guid: cd3b6267022a8f94abb586bc55860d88,
+    type: 2}

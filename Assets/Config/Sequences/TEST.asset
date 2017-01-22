@@ -11,6 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c284dca1b6e9eb341b1fd703a066f06a, type: 3}
   m_Name: TEST
   m_EditorClassIdentifier: 
+  Title: 
+  SubTitle: 
+  TitleTriggerOffset: -400
   WaveSize: 500
   WavePatterns:
   - {fileID: 11400000, guid: 2adef133766117b40aa20c5434f097be, type: 2}

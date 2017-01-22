@@ -10,6 +10,10 @@ public class Hazard : AdvancedMonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private Animator animator;
+	[SerializeField]
+	private string groundSortingLayerName = "GroundHazard";
+	[SerializeField]
+	private string airSortingLayerName = "AirHazard";
 
 	public HazardType Type { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -52,9 +56,12 @@ public class Hazard : AdvancedMonoBehaviour
 			case HazardType.AirHeart:
 			case HazardType.AirTreasure:
 				// Air
-				Vector3 visualPosition = this.spriteRenderer.transform.localPosition;
-				visualPosition.z = -2;
-				this.spriteRenderer.transform.localPosition = visualPosition;
+				this.spriteRenderer.sortingLayerName = this.airSortingLayerName;
+				break;
+
+			default:
+				// Ground
+				this.spriteRenderer.sortingLayerName = this.groundSortingLayerName;
 				break;
 		}
 	}
