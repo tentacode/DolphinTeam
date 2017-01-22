@@ -19,8 +19,11 @@ public class MenuController : MonoBehaviour
 	private int playerIndex;
 	private int playerCount;
 
+	public GameObject gameUI;
+
 	void Start()
 	{
+		gameUI.SetActive(false);
 		SwitchToModeChoice();
 		SetPlayerCount(2);
 	}
@@ -102,6 +105,7 @@ public class MenuController : MonoBehaviour
 	{
 		HideEverythingBut("🤔");
 		Game.Instance.StartGame();
+		gameUI.SetActive(true);
 	}
 
 	public void SymbolInputUp(int symbolIndex)
