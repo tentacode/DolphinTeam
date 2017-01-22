@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c284dca1b6e9eb341b1fd703a066f06a, type: 3}
-  m_Name: Transition1
+  m_Name: Transition2
   m_EditorClassIdentifier: 
-  Title: STAGE ONE
+  Title: STAGE TWO
   SubTitle: COMPLETE
   TitleTriggerOffset: 0
   WaveSize: 1000
