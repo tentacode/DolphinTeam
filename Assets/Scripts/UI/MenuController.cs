@@ -110,13 +110,13 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = inputSymbol.sprite;
 
 		switch (sprite.name) {
-			case "Symbols_0":
+			case "Seed_starfish":
 				inputSymbol.sprite = playerSymbolSprites[1];
 				break;
-			case "Symbols_1":
+			case "Seed_sushi":
 				inputSymbol.sprite = playerSymbolSprites[2];
 				break;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				inputSymbol.sprite = playerSymbolSprites[3];
 				break;
 			default:
@@ -127,16 +127,16 @@ public class MenuController : MonoBehaviour
 		// updating player count
 		if (symbolIndex == 3) {
 			switch (inputSymbol.sprite.name) {
-				case "Symbols_0":
+				case "Seed_starfish":
 					SetPlayerCount(2);
 					break;
-				case "Symbols_1":
+				case "Seed_sushi":
 					SetPlayerCount(3);
 					break;
-				case "Symbols_2":
+				case "Seed_fishbone":
 					SetPlayerCount(4);
 					break;
-				case "Symbols_3":
+				case "Seed_tunacan":
 					SetPlayerCount(5);
 					break;
 			}
@@ -151,13 +151,13 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = inputSymbol.sprite;
 
 		switch (sprite.name) {
-			case "Symbols_3":
+			case "Seed_tunacan":
 				inputSymbol.sprite = playerSymbolSprites[2];
 				break;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				inputSymbol.sprite = playerSymbolSprites[1];
 				break;
-			case "Symbols_1":
+			case "Seed_sushi":
 				inputSymbol.sprite = playerSymbolSprites[0];
 				break;
 			default:
@@ -168,16 +168,16 @@ public class MenuController : MonoBehaviour
 		// updating player count
 		if (symbolIndex == 3) {
 			switch (inputSymbol.sprite.name) {
-				case "Symbols_0":
+				case "Seed_starfish":
 					SetPlayerCount(2);
 					break;
-				case "Symbols_1":
+				case "Seed_sushi":
 					SetPlayerCount(3);
 					break;
-				case "Symbols_2":
+				case "Seed_fishbone":
 					SetPlayerCount(4);
 					break;
-				case "Symbols_3":
+				case "Seed_tunacan":
 					SetPlayerCount(5);
 					break;
 			}
@@ -204,11 +204,11 @@ public class MenuController : MonoBehaviour
 	{
 		switch (sprite.name)
 		{
-			case "Symbols_0":
+			case "Seed_starfish":
 				return 0;
-			case "Symbols_1":
+			case "Seed_sushi":
 				return 1;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				return 2;
 		}
 
