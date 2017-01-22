@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
@@ -12,6 +12,14 @@ public class Game : MonoBehaviour
 	private int playerCount;
 	[SerializeField]
 	private Camera debugCamera;
+	[SerializeField]
+	private Text sequenceTitleLabel;
+	[SerializeField]
+	private Text sequenceSubTitleLabel;
+	[SerializeField]
+	private Animator sequenceTitleAnimator;
+	[SerializeField]
+	private string sequenceTitleDisplayTriggerName = "Display";
 
 	public int LocalPlayerIndex { get; private set; }
 	public int PlayerCount { get; private set; }
@@ -49,6 +57,13 @@ public class Game : MonoBehaviour
 	{
 		SceneManager.LoadScene(0);
 		Time.timeScale = 1f;
+	}
+
+	public void DisplaySequenceTitle(string title, string subTitle)
+	{
+		this.sequenceTitleLabel.text = title;
+		this.sequenceSubTitleLabel.text = subTitle;
+		this.sequenceTitleAnimator.SetTrigger(this.sequenceTitleDisplayTriggerName);
 	}
 
 	private void Update()
