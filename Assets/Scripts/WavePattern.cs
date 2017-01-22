@@ -26,7 +26,7 @@ public class WavePattern : ScriptableObject
 		{
 			WavePattern.HazardSpawnConfig hazardSpawnConfig = this.waveHazardSpawnConfigs[hazardIndex];
 
-			float hazardXPosition = (hazardSpawnConfig.ColumnIndex - (gameConfig.ColumnCount / 2)) * gameConfig.MoveUnit;
+			float hazardXPosition = (hazardSpawnConfig.ColumnIndex - (gameConfig.ColumnCount / 2)) * gameConfig.ColumnWidth;
 			int playerIndex = Random.Range(0, playerCount);
 
 			GameObject hazardGO = GameObject.Instantiate(gameConfig.HazardPrefab, hazardXPosition * Vector3.right + waveYPosition * Vector3.up, Quaternion.identity);
