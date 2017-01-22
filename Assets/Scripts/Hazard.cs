@@ -14,6 +14,8 @@ public class Hazard : AdvancedMonoBehaviour
 	private string groundSortingLayerName = "GroundHazard";
 	[SerializeField]
 	private string airSortingLayerName = "AirHazard";
+	[SerializeField]
+	private float airYOffset;
 
 	public HazardType Type { get; private set; }
     public BoxCollider2D Collider { get; private set; }
@@ -64,6 +66,7 @@ public class Hazard : AdvancedMonoBehaviour
 			case HazardType.AirTreasure:
 				// Air
 				this.spriteRenderer.sortingLayerName = this.airSortingLayerName;
+				this.Tfm.position += this.airYOffset * Vector3.up;
 				break;
 
 			default:
