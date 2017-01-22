@@ -230,7 +230,8 @@ public class Player : AdvancedMonoBehaviour
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
 				this.collidingHazard.Collider.enabled = false;
                 this.collidingHazard.MakeInvisible();
-				this.collidingHazard = null;
+                this.collidingHazard.OnPlayerCollision();
+                this.collidingHazard = null;
 			}
 
 			if (isCapturingTreasure)
@@ -239,7 +240,8 @@ public class Player : AdvancedMonoBehaviour
 				this.treasureDisplay.UpdateDisplayCount(this.treasureCount);
 				this.collidingHazard.Collider.enabled = false;
                 this.collidingHazard.MakeInvisible();
-				this.collidingHazard = null;
+                this.collidingHazard.OnPlayerCollision();
+                this.collidingHazard = null;
 			}
 		}
 	}
