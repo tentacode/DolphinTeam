@@ -93,6 +93,11 @@ public class Player : AdvancedMonoBehaviour
 			return;
 		}
 
+		if (!Game.Instance.IsStarted)
+		{
+			return;
+		}
+
 		if (!this.isAirborne)
 		{
 			if (DolphinInput.IsGoingLeft())
