@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c5469f411857749bf10addcd30955f, type: 3}
   m_Name: New Sequence 3
   m_EditorClassIdentifier: 
-  Title: Sequence 3
-  SubTitle: sub title de bg
-  TitleTriggerOffset: -400
+  Title: READY ?
+  SubTitle: GO
+  TitleTriggerOffset: -600
   WaveSize: 300
   WaveGroupCount: 4
   MinDifficultyCurve:
