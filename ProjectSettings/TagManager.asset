@@ -42,3 +42,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Water
+    uniqueID: 3080908203
+    locked: 0
+  - name: Wave
+    uniqueID: 1655328253
+    locked: 0
+  - name: PlayerShadow
+    uniqueID: 3249143447
+    locked: 0
+  - name: GroundHazard
+    uniqueID: 3738153065
+    locked: 0
+  - name: GroundedPlayer
+    uniqueID: 866010249
+    locked: 0
+  - name: AirbornePlayer
+    uniqueID: 755371359
+    locked: 0
+  - name: AirHazard
+    uniqueID: 4002628641
+    locked: 0

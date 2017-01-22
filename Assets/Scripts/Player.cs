@@ -20,7 +20,14 @@ public class Player : AdvancedMonoBehaviour
     [SerializeField]
     private AudioPlayer audioPlayer;
 
-    private int hPosition = 0;
+    [SerializeField]
+	private string groundedSortingLayerName = "GroundedPlayer";
+	[SerializeField]
+	private string airborneSortingLayerName = "AirbornePlayer";
+	[SerializeField]
+	private string isAirborneAnimBoolName = "IsAirborne";
+
+	private int hPosition = 0;
 	private Hazard collidingHazard;
 	private bool isAirborne;
 	private bool isDead;
@@ -201,13 +208,18 @@ public class Player : AdvancedMonoBehaviour
 
 	private IEnumerator Jump()
 	{
+		// Going airborne
 		this.isAirborne = true;
-		this.animator.SetBool("IsAirborne", this.isAirborne);
+		this.animator.SetBool(this.isAirborneAnimBoolName, this.isAirborne);
+		this.spriteRenderer.sortingLayerName = this.airborneSortingLayerName;
 
+		// Gracefully flying...
 		yield return new WaitForSeconds(this.gameConfig.JumpDuration);
 
+		// Landing
 		this.isAirborne = false;
-		this.animator.SetBool("IsAirborne", this.isAirborne);
+		this.animator.SetBool(this.isAirborneAnimBoolName, this.isAirborne);
+		this.spriteRenderer.sortingLayerName = this.groundedSortingLayerName;
 	}
 
 }

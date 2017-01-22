@@ -1,13 +1,32 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DolphinInput : MonoBehaviour
 {
     static Vector2 downMousePosition;
     public static float deadZone = 0.5f;
 
-    void Update()
+	bool IsPointerOverUIElement()
+	{
+		if (EventSystem.current == null)
+		{
+			// Happens on Android since 5.3 :/
+			return false;
+		}
+
+		if (Application.isMobilePlatform)
+		{
+			return EventSystem.current.IsPointerOverGameObject(0);
+		}
+		else
+		{
+			return EventSystem.current.IsPointerOverGameObject();
+		}
+	}
+
+	void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement()) {
             downMousePosition = Input.mousePosition;
         }
     }
