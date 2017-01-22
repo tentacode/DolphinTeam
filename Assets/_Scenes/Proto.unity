@@ -566,7 +566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &197146432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,12 +2009,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1356294990721210, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224726900280866626, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -5.9999924
+      value: -6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
@@ -2035,7 +2035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &512992863
 RectTransform:
   m_ObjectHideFlags: 0
