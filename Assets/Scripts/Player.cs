@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : AdvancedMonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Player : AdvancedMonoBehaviour
 	private Animator animator;
 	[SerializeField]
 	private RectTransform gameOverUI;
-    [SerializeField]
+	[SerializeField]
+	private Text passedWaveCountLabel;
+	[SerializeField]
     private LifeDisplay lifeDisplay;
     [SerializeField]
     private TreasureDisplay treasureDisplay;
@@ -33,6 +36,7 @@ public class Player : AdvancedMonoBehaviour
 	private int heartCount;
 	private int treasureCount;
     private bool hasBeenHit;
+    private int passedWaveCount;
 
 	private void Start()
 	{
@@ -56,7 +60,8 @@ public class Player : AdvancedMonoBehaviour
                 this.audioPlayer.PlayClip("WaveSuccess");
             }
             this.hasBeenHit = false;
-            return;
+			++this.passedWaveCount;
+			return;
         }
 
 		if (gameConfig.DebugMode) Debug.LogFormat("OnTriggerEnter2D {0}", other.name);
@@ -187,7 +192,8 @@ public class Player : AdvancedMonoBehaviour
 				if (this.heartCount == 0)
                 {
                     this.audioPlayer.PlayClip("PlayerHit");
-                    this.gameOverUI.Show();
+					this.passedWaveCountLabel.text = string.Format("PASSED WAVES: {0}", this.passedWaveCount);
+					this.gameOverUI.Show();
                     //                    Time.timeScale = 0f;
                     this.isDead = true;
                     this.collidingHazard.OnPlayerDeadlyCollision();

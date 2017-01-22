@@ -110,13 +110,13 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = inputSymbol.sprite;
 
 		switch (sprite.name) {
-			case "Symbols_0":
+			case "Seed_starfish":
 				inputSymbol.sprite = playerSymbolSprites[1];
 				break;
-			case "Symbols_1":
+			case "Seed_sushi":
 				inputSymbol.sprite = playerSymbolSprites[2];
 				break;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				inputSymbol.sprite = playerSymbolSprites[3];
 				break;
 			default:
@@ -127,16 +127,16 @@ public class MenuController : MonoBehaviour
 		// updating player count
 		if (symbolIndex == 3) {
 			switch (inputSymbol.sprite.name) {
-				case "Symbols_0":
+				case "Seed_starfish":
 					SetPlayerCount(2);
 					break;
-				case "Symbols_1":
+				case "Seed_sushi":
 					SetPlayerCount(3);
 					break;
-				case "Symbols_2":
+				case "Seed_fishbone":
 					SetPlayerCount(4);
 					break;
-				case "Symbols_3":
+				case "Seed_tunacan":
 					SetPlayerCount(5);
 					break;
 			}
@@ -151,13 +151,13 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = inputSymbol.sprite;
 
 		switch (sprite.name) {
-			case "Symbols_3":
+			case "Seed_tunacan":
 				inputSymbol.sprite = playerSymbolSprites[2];
 				break;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				inputSymbol.sprite = playerSymbolSprites[1];
 				break;
-			case "Symbols_1":
+			case "Seed_sushi":
 				inputSymbol.sprite = playerSymbolSprites[0];
 				break;
 			default:
@@ -168,16 +168,16 @@ public class MenuController : MonoBehaviour
 		// updating player count
 		if (symbolIndex == 3) {
 			switch (inputSymbol.sprite.name) {
-				case "Symbols_0":
+				case "Seed_starfish":
 					SetPlayerCount(2);
 					break;
-				case "Symbols_1":
+				case "Seed_sushi":
 					SetPlayerCount(3);
 					break;
-				case "Symbols_2":
+				case "Seed_fishbone":
 					SetPlayerCount(4);
 					break;
-				case "Symbols_3":
+				case "Seed_tunacan":
 					SetPlayerCount(5);
 					break;
 			}
@@ -204,11 +204,11 @@ public class MenuController : MonoBehaviour
 	{
 		switch (sprite.name)
 		{
-			case "Symbols_0":
+			case "Seed_starfish":
 				return 0;
-			case "Symbols_1":
+			case "Seed_sushi":
 				return 1;
-			case "Symbols_2":
+			case "Seed_fishbone":
 				return 2;
 		}
 
@@ -227,17 +227,17 @@ public class MenuController : MonoBehaviour
 		}
 
 		switch (playerSymbol.sprite.name) {
-			case "PlayerIndex_1":
+			case "player_green":
 				if (playerCount == 2) {
 					playerSymbol.sprite = playerIndexSprites[0];
 				}
 				break;
-			case "PlayerIndex_2":
+			case "player_purple":
 				if (playerCount <= 3) {
 					playerSymbol.sprite = playerIndexSprites[1];
 				}
 				break;
-			case "PlayerIndex_3":
+			case "player_yellow":
 				if (playerCount <= 4) {
 					playerSymbol.sprite = playerIndexSprites[2];
 				}
@@ -252,14 +252,14 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = playerSymbol.sprite;
 
 		switch (sprite.name) {
-			case "PlayerIndex_0":
+			case "player_blue":
 				if (playerCount == 2) {
 					return;
 				}
 
 				playerSymbol.sprite = playerIndexSprites[1];
 				break;
-			case "PlayerIndex_1":
+			case "player_green":
 				if (playerCount <= 3) {
 					playerSymbol.sprite = playerIndexSprites[0];
 					break;
@@ -267,7 +267,7 @@ public class MenuController : MonoBehaviour
 
 				playerSymbol.sprite = playerIndexSprites[2];
 				break;
-			case "PlayerIndex_2":
+			case "player_purple":
 				if (playerCount <= 4) {
 					playerSymbol.sprite = playerIndexSprites[0];
 					break;
@@ -275,7 +275,7 @@ public class MenuController : MonoBehaviour
 
 				playerSymbol.sprite = playerIndexSprites[3];
 				break;
-			case "PlayerIndex_3":
+			case "player_yellow":
 				playerSymbol.sprite = playerIndexSprites[0];
 				break;
 		}
@@ -288,7 +288,7 @@ public class MenuController : MonoBehaviour
 		Sprite sprite = playerSymbol.sprite;
 
 		switch (sprite.name) {
-			case "PlayerIndex_0":
+			case "player_blue":
 				switch (playerCount) {
 					case 5:
 						playerSymbol.sprite = playerIndexSprites[3];
@@ -304,13 +304,13 @@ public class MenuController : MonoBehaviour
 				}
 
 				break;
-			case "PlayerIndex_1":
+			case "player_green":
 				playerSymbol.sprite = playerIndexSprites[0];
 				break;
-			case "PlayerIndex_2":
+			case "player_purple":
 				playerSymbol.sprite = playerIndexSprites[1];
 				break;
-			case "PlayerIndex_3":
+			case "player_yellow":
 				playerSymbol.sprite = playerIndexSprites[2];
 				break;
 		}
@@ -322,16 +322,16 @@ public class MenuController : MonoBehaviour
 	{
 		// host is player index 0, slave are players 1 to 4
 		switch (playerSymbol.sprite.name) {
-			case "PlayerIndex_0":
+			case "player_blue":
 				playerIndex = 1;
 				break;
-			case "PlayerIndex_1":
+			case "player_green":
 				playerIndex = 2;
 				break;
-			case "PlayerIndex_2":
+			case "player_purple":
 				playerIndex = 3;
 				break;
-			case "PlayerIndex_3":
+			case "player_yellow":
 				playerIndex = 4;
 				break;
 		}
