@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
 
 	void Start()
 	{
-		SwitchToLanding();
+		SwitchToModeChoice();
 		SetPlayerCount(2);
 	}
 
@@ -70,7 +70,7 @@ public class MenuController : MonoBehaviour
 
 	public void SwitchToLanding()
 	{
-		HideEverythingBut("Landing");
+		Application.LoadLevel(0);
 	}
 
 	public void SwitchToModeChoice()
