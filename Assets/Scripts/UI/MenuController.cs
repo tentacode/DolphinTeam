@@ -101,6 +101,7 @@ public class MenuController : MonoBehaviour
 	public void StartGame()
 	{
 		HideEverythingBut("🤔");
+		Game.Instance.StartGame();
 	}
 
 	public void SymbolInputUp(int symbolIndex)
