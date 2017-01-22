@@ -15,9 +15,9 @@ MonoBehaviour:
   ScrollSpeed: 100
   MoveUnit: 100
   ColumnCount: 3
-  FirstWaveOffset: 1000
-  InitPlayerHeartCount: 10
-  MaxPlayerHeartCount: 10
+  FirstWaveOffset: 800
+  InitPlayerHeartCount: 2
+  MaxPlayerHeartCount: 3
   JumpDuration: 2
   HazardSprites:
   - {fileID: 21300000, guid: 0c81e0aecddf01644870f7d32d9e02f6, type: 3}
