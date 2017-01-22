@@ -25,7 +25,7 @@ public class Player : AdvancedMonoBehaviour
 	[SerializeField]
 	private string airborneSortingLayerName = "AirbornePlayer";
 	[SerializeField]
-	private string isAirborneAnimBoolName = "IsAirborne";
+	private string jumpAnimTriggerName = "Jump";
 
 	private int hPosition = 0;
 	private Hazard collidingHazard;
@@ -110,7 +110,7 @@ public class Player : AdvancedMonoBehaviour
 			if (DolphinInput.IsJumping())
 			{
 				// Jump
-				this.StartCoroutine(this.Jump());
+				this.Jump();
 			}
 		}
 
@@ -206,19 +206,18 @@ public class Player : AdvancedMonoBehaviour
         }
 	}
 
-	private IEnumerator Jump()
+	private void Jump()
 	{
 		// Going airborne
 		this.isAirborne = true;
-		this.animator.SetBool(this.isAirborneAnimBoolName, this.isAirborne);
+		this.animator.SetTrigger(this.jumpAnimTriggerName);
 		this.spriteRenderer.sortingLayerName = this.airborneSortingLayerName;
+	}
 
-		// Gracefully flying...
-		yield return new WaitForSeconds(this.gameConfig.JumpDuration);
-
+	private void Land()
+	{
 		// Landing
 		this.isAirborne = false;
-		this.animator.SetBool(this.isAirborneAnimBoolName, this.isAirborne);
 		this.spriteRenderer.sortingLayerName = this.groundedSortingLayerName;
 	}
 
