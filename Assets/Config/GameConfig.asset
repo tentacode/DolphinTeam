@@ -30,9 +30,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b24e95265d5798747b533c0d8ea62d56, type: 3}
   - {fileID: 21300000, guid: 18c434fa4f676c247b95cda9de32e4cd, type: 3}
   HazardAudioSources:
-  - {fileID: 8300000, guid: 863da520f8842204082d6670892b14d0, type: 3}
+  - {fileID: 8300000, guid: 7b0cc76917162554db725f9b67ddae04, type: 3}
   - {fileID: 8300000, guid: f7d1244c22cce2b45b560f72b9a8b9d9, type: 3}
-  - {fileID: 8300000, guid: 9e73b1acc7cb9a9419af5a00081fa972, type: 3}
+  - {fileID: 8300000, guid: 4ffa9bc4f99fbe04db49289128085f91, type: 3}
   - {fileID: 8300000, guid: 732aa75c611122342bc4a546dbe47b80, type: 3}
   HazardAnimators:
   - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
