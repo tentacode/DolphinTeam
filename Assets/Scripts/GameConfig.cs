@@ -21,6 +21,7 @@ public class GameConfig : ScriptableObject
 
 	public GameObject HazardPrefab;
 	public GameObject WavePrefab;
+	public GameObject SequenceTitlePrefab;
 
 	public Sprite GetHazardSprite(Hazard.HazardType hazardType)
 	{
