@@ -1247,10 +1247,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1356294990721210, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114446551197560440, guid: 4dadd06a903e24a1fa4118b699c06bef,
+        type: 2}
+      propertyPath: gameUI
+      value: 
+      objectReference: {fileID: 197146431}
     - target: {fileID: 224656704809759358, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -1271,20 +1272,10 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: -0.4552002
       objectReference: {fileID: 0}
-    - target: {fileID: 114446551197560440, guid: 4dadd06a903e24a1fa4118b699c06bef,
+    - target: {fileID: 114013433046942588, guid: 4dadd06a903e24a1fa4118b699c06bef,
         type: 2}
-      propertyPath: gameUI
-      value: 
-      objectReference: {fileID: 197146431}
-    - target: {fileID: 224726900280866626, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224731022321203520, guid: 4dadd06a903e24a1fa4118b699c06bef,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.2199707
+      propertyPath: m_Text
+      value: Tell your dolphin friends to enter this code!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dadd06a903e24a1fa4118b699c06bef, type: 2}
