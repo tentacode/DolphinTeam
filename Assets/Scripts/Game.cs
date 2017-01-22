@@ -24,6 +24,8 @@ public class Game : MonoBehaviour
 	private DolphinInput inputManager;
 	[SerializeField]
 	private AudioSource musicAudioSource;
+	[SerializeField]
+	private Transform godzilla;
 
 	private int playerCount;
 
@@ -67,6 +69,9 @@ public class Game : MonoBehaviour
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 			sequence.SpawnWaveGroups(this.gameConfig, this.playerCount, ref waveYPosition);
 		}
+
+		// Spawn Godzilla
+		this.godzilla.position = waveYPosition * Vector3.up;
 	}
 
 	public void StartGame()
