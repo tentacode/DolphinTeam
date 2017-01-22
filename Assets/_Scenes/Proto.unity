@@ -1595,10 +1595,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2.74}
+  m_Offset: {x: 0, y: 7.755615}
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 80}
+  m_Size: {x: 30, y: 53.283752}
 --- !u!50 &1152215832
 Rigidbody2D:
   serializedVersion: 4
