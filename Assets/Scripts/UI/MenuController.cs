@@ -188,7 +188,7 @@ public class MenuController : MonoBehaviour
 
 	void ComputeInputSeed()
 	{
-		int seed = 0;
+		seed = 0;
 
 		int spriteIndex0 = GetSpriteSymbolIndex(slaveSeedSymbols[0].sprite);
 		seed += spriteIndex0 * 16;
