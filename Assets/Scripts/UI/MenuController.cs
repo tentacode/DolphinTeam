@@ -341,5 +341,7 @@ public class MenuController : MonoBehaviour
 		Game.Instance.SetLocalPlayerIndex(playerIndex);
 		Game.Instance.SetPlayerCount(playerCount);
 		Game.Instance.GenerateLevel(seed);
+
+		SwitchToReady();
 	}
 }
