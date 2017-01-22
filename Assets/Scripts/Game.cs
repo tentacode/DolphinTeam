@@ -9,8 +9,6 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	private GameConfig gameConfig;
 	[SerializeField]
-	private int playerCount;
-	[SerializeField]
 	private Camera debugCamera;
 	[SerializeField]
 	private Text sequenceTitleLabel;
@@ -20,9 +18,12 @@ public class Game : MonoBehaviour
 	private Animator sequenceTitleAnimator;
 	[SerializeField]
 	private string sequenceTitleDisplayTriggerName = "Display";
+	[SerializeField]
+	private LevelScroller levelScroller;
+
+	private int playerCount;
 
 	public int LocalPlayerIndex { get; private set; }
-	public int PlayerCount { get; private set; }
 
 	public Game()
 	{
@@ -36,7 +37,7 @@ public class Game : MonoBehaviour
 
 	public void SetPlayerCount(int playerCount)
 	{
-		this.PlayerCount = playerCount;
+		this.playerCount = playerCount;
 	}
 
 	public void GenerateLevel(int seed)
@@ -51,6 +52,11 @@ public class Game : MonoBehaviour
 			Sequence sequence = this.gameConfig.Sequences[sequenceIndex];
 			sequence.SpawnWaveGroups(this.gameConfig, this.playerCount, ref waveYPosition);
 		}
+	}
+
+	public void StartGame()
+	{
+		this.levelScroller.enabled = true;
 	}
 
 	public void Restart()

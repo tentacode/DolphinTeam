@@ -429,12 +429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 338f6b190e379494e9d629be330e3f04, type: 2}
-  playerCount: 3
   debugCamera: {fileID: 1408561340}
   sequenceTitleLabel: {fileID: 1408039721}
   sequenceSubTitleLabel: {fileID: 588652737}
   sequenceTitleAnimator: {fileID: 629286045}
   sequenceTitleDisplayTriggerName: Display
+  levelScroller: {fileID: 1616703079}
 --- !u!4 &188240276
 Transform:
   m_ObjectHideFlags: 0
@@ -2331,9 +2331,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1616703079}
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 188240275}
+        m_MethodName: StartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

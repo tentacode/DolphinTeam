@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114271408037077460}
   - component: {fileID: 95253272035163554}
   - component: {fileID: 82565468912079142}
+  - component: {fileID: 114933776149264832}
   m_Layer: 0
   m_Name: Hazard
   m_TagString: Untagged
@@ -109,9 +110,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 800
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -138,7 +139,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -178,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 1924899436941520}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18b3eb5ed6d0df14fa1d3e23a8788d47, type: 2}
+  m_Controller: {fileID: 22100000, guid: c4e5cbc892a15e44daea7c2f4dd879ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -199,8 +200,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConfig: {fileID: 11400000, guid: 338f6b190e379494e9d629be330e3f04, type: 2}
   spriteRenderer: {fileID: 212751170200390598}
-  audioSource: {fileID: 82565468912079142}
+  audioPlayer: {fileID: 114933776149264832}
   animator: {fileID: 95253272035163554}
+  groundSortingLayerName: GroundHazard
+  airSortingLayerName: AirHazard
+--- !u!114 &114933776149264832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924899436941520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824ef41673503c94097c78b8791b5122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips: []
+  audioSource: {fileID: 82565468912079142}
 --- !u!212 &212751170200390598
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -238,6 +254,6 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 100, y: 100}
+  m_Size: {x: 300, y: 300}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0

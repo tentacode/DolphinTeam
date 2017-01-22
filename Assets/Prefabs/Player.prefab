@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 61602475860085486}
   - component: {fileID: 95115705663825112}
   - component: {fileID: 82816268127758114}
+  - component: {fileID: 114342803010778870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -237,6 +238,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114342803010778870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774986288805626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824ef41673503c94097c78b8791b5122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips: []
+  audioSource: {fileID: 82816268127758114}
 --- !u!114 &114823413699755570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +269,7 @@ MonoBehaviour:
   lifeDisplay: {fileID: 0}
   treasureDisplay: {fileID: 0}
   audioSource: {fileID: 82816268127758114}
+  audioPlayer: {fileID: 114342803010778870}
   groundedSortingLayerName: GroundedPlayer
   airborneSortingLayerName: AirbornePlayer
   isAirborneAnimBoolName: IsAirborne
