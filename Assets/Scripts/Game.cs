@@ -20,14 +20,23 @@ public class Game : MonoBehaviour
 	private string sequenceTitleDisplayTriggerName = "Display";
 	[SerializeField]
 	private LevelScroller levelScroller;
+	[SerializeField]
+	private DolphinInput inputManager;
 
 	private int playerCount;
 
 	public int LocalPlayerIndex { get; private set; }
+	public bool IsStarted { get; private set; }
 
 	public Game()
 	{
 		Game.Instance = this;
+	}
+
+	private void Start()
+	{
+		this.levelScroller.enabled = false;
+		this.inputManager.enabled = false;
 	}
 
 	public void SetLocalPlayerIndex(int playerIndex)
@@ -60,6 +69,8 @@ public class Game : MonoBehaviour
 	public void StartGame()
 	{
 		this.levelScroller.enabled = true;
+		this.inputManager.enabled = true;
+		this.IsStarted = true;
 	}
 
 	public void Restart()

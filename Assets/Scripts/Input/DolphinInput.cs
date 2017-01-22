@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 public class DolphinInput : MonoBehaviour
 {
+    static bool hasRecordedMouseDown;
     static Vector2 downMousePosition;
     public static float deadZone = 0.5f;
 
@@ -28,7 +29,8 @@ public class DolphinInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !IsPointerOverUIElement()) {
             downMousePosition = Input.mousePosition;
-        }
+			hasRecordedMouseDown = true;
+		}
     }
 
     public static bool IsJumping()
@@ -79,7 +81,7 @@ public class DolphinInput : MonoBehaviour
 
     static bool IsFingerUp()
     {
-        return Input.GetMouseButtonUp(0);
+        return hasRecordedMouseDown && Input.GetMouseButtonUp(0);
     }
 
     static float GetDeltaX()    
