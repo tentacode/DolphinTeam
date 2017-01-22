@@ -22,6 +22,8 @@ public class Game : MonoBehaviour
 	private LevelScroller levelScroller;
 	[SerializeField]
 	private DolphinInput inputManager;
+	[SerializeField]
+	private AudioSource musicAudioSource;
 
 	private int playerCount;
 
@@ -71,6 +73,12 @@ public class Game : MonoBehaviour
 		this.levelScroller.enabled = true;
 		this.inputManager.enabled = true;
 		this.IsStarted = true;
+
+		if (this.LocalPlayerIndex == 0)
+		{
+			// Host
+			this.musicAudioSource.Play();
+		}
 	}
 
 	public void Restart()

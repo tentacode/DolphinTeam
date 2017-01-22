@@ -14,8 +14,6 @@ public class Chapter : Sequence
 	{
 		base.SpawnWaveGroups(gameConfig, playerCount, ref waveYPosition);
 
-		bool noHazardHiding = false;
-
 		// Generate pattern groups
 		for (int waveGroupPatternNumber = 1; waveGroupPatternNumber <= this.WaveGroupCount; ++waveGroupPatternNumber)
 		{
