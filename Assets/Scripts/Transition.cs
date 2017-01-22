@@ -13,5 +13,6 @@ public class Transition : Sequence
 		wavePattern.SpawnHazards(gameConfig, playerCount, waveYPosition, true);
 
 		waveYPosition += this.WaveSize;
+		++Game.Instance.TotalWaveCount;
 	}
 }

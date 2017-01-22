@@ -29,6 +29,7 @@ public class Game : MonoBehaviour
 
 	public int LocalPlayerIndex { get; private set; }
 	public bool IsStarted { get; private set; }
+	public int TotalWaveCount { get; set; }
 
 	public Game()
 	{
@@ -83,7 +84,7 @@ public class Game : MonoBehaviour
 
 	public void Restart()
 	{
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		Time.timeScale = 1f;
 	}
 

@@ -14,6 +14,10 @@ public class Player : AdvancedMonoBehaviour
 	[SerializeField]
 	private Text passedWaveCountLabel;
 	[SerializeField]
+	private RectTransform victoryUI;
+	[SerializeField]
+	private Text treasuresCountLabel;
+	[SerializeField]
     private LifeDisplay lifeDisplay;
     [SerializeField]
     private TreasureDisplay treasureDisplay;
@@ -27,6 +31,8 @@ public class Player : AdvancedMonoBehaviour
 	private string airborneSortingLayerName = "AirbornePlayer";
 	[SerializeField]
 	private string jumpAnimTriggerName = "Jump";
+	[SerializeField]
+	private GameObject godzilla;
 
 	private int columnIndex = 1;
 	private Hazard collidingHazard;
@@ -61,6 +67,14 @@ public class Player : AdvancedMonoBehaviour
             }
             this.hasBeenHit = false;
 			++this.passedWaveCount;
+			if (this.passedWaveCount >= Game.Instance.TotalWaveCount)
+			{
+				// Victory
+				this.victoryUI.Show();
+				this.treasuresCountLabel.text = string.Format("TREASURES: {0}", this.treasureCount);
+
+				this.godzilla.SetActive(true);
+			}
 			return;
         }
 

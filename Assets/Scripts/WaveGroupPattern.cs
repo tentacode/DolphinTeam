@@ -18,6 +18,7 @@ public class WaveGroupPattern : ScriptableObject
 			wavePattern.SpawnHazards(gameConfig, playerCount, waveYPosition);
 
 			waveYPosition += waveSize;
+			++Game.Instance.TotalWaveCount;
 		}
 	}
 }
