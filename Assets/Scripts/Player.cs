@@ -15,9 +15,12 @@ public class Player : AdvancedMonoBehaviour
     private LifeDisplay lifeDisplay;
     [SerializeField]
     private TreasureDisplay treasureDisplay;
-	[SerializeField]
-	private AudioSource audioSource;
-	[SerializeField]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioPlayer audioPlayer;
+
+    [SerializeField]
 	private string groundedSortingLayerName = "GroundedPlayer";
 	[SerializeField]
 	private string airborneSortingLayerName = "AirbornePlayer";
@@ -51,7 +54,7 @@ public class Player : AdvancedMonoBehaviour
         {
             if (this.hasBeenHit == false)
             {
-                this.audioSource.Play();
+                this.audioPlayer.PlayClip("WaveSuccess");
             }
             this.hasBeenHit = false;
             return;
@@ -169,6 +172,7 @@ public class Player : AdvancedMonoBehaviour
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
                 if (this.heartCount == 0)
                 {
+                    this.audioPlayer.PlayClip("PlayerHit");
                     this.gameOverUI.Show();
                     //                    Time.timeScale = 0f;
                     this.isDead = true;
@@ -178,6 +182,7 @@ public class Player : AdvancedMonoBehaviour
                 else
                 {
                     this.animator.SetTrigger("Hit");
+                    this.audioPlayer.PlayClip("PlayerHit");
                     this.collidingHazard.OnPlayerCollision();
                 }
                 this.collidingHazard.Collider.enabled = false;
