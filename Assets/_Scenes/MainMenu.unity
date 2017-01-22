@@ -434,7 +434,7 @@ MonoBehaviour:
   sequenceSubTitleLabel: {fileID: 588652737}
   sequenceTitleAnimator: {fileID: 629286045}
   sequenceTitleDisplayTriggerName: Display
-  levelScroller: {fileID: 0}
+  levelScroller: {fileID: 1616703079}
 --- !u!4 &188240276
 Transform:
   m_ObjectHideFlags: 0
