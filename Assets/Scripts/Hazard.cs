@@ -74,7 +74,6 @@ public class Hazard : AdvancedMonoBehaviour
         else
         {
             //this.audioPlayer.PlayIdle();
-            Debug.Log("idleplay" + audioIdle.clip);
             this.audioIdle.Play();
         }
 
