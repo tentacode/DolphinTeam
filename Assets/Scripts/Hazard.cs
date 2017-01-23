@@ -44,6 +44,28 @@ public class Hazard : AdvancedMonoBehaviour
         //this.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
         //this.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
 
+        switch (Type) {
+            case HazardType.None:
+                break;
+            case HazardType.Mine:
+            case HazardType.Helicopter:
+            case HazardType.Shark:
+                this.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
+                this.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
+                break;
+
+            case HazardType.GroundHeart:
+            case HazardType.AirHeart:
+            case HazardType.GroundTreasure:
+            case HazardType.AirTreasure:
+                this.SetAudioTouched(this.gameConfig.GetHazardAudio("pickup"));
+                break;
+            default:
+                break;
+        }
+
+        if(Type == HazardType.Helicopter) audioIdle.dopplerLevel = 1f;
+
         if (!noHazardHiding && Game.Instance.LocalPlayerIndex != playerIndex)
 		{
 			// Hidden
@@ -52,6 +74,7 @@ public class Hazard : AdvancedMonoBehaviour
         else
         {
             //this.audioPlayer.PlayIdle();
+            Debug.Log("idleplay" + audioIdle.clip);
             this.audioIdle.Play();
         }
 
@@ -79,25 +102,7 @@ public class Hazard : AdvancedMonoBehaviour
 				break;
 		}
 
-        switch (Type) {
-            case HazardType.None:
-                break;
-            case HazardType.Mine:
-            case HazardType.Helicopter:
-            case HazardType.Shark:
-                this.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
-                this.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
-                break;
-
-            case HazardType.GroundHeart:
-            case HazardType.AirHeart:
-            case HazardType.GroundTreasure:
-            case HazardType.AirTreasure:
-                this.SetAudioTouched(this.gameConfig.GetHazardAudio("pickup"));
-                break;
-            default:
-                break;
-        }
+        
     }
 
     private void SetAudioTouched(AudioClip audioClip) {
