@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Hazard : AdvancedMonoBehaviour
 {
@@ -16,8 +17,10 @@ public class Hazard : AdvancedMonoBehaviour
 	private string airSortingLayerName = "AirHazard";
 	[SerializeField]
 	private float airYOffset;
+    [SerializeField]
+    private AudioSource audioTouched, audioIdle;
 
-	public HazardType Type { get; private set; }
+    public HazardType Type { get; private set; }
     public BoxCollider2D Collider { get; private set; }
 
 	[System.Serializable]
@@ -38,8 +41,8 @@ public class Hazard : AdvancedMonoBehaviour
 		this.Type = type;
         this.Collider = GetComponent<BoxCollider2D>();
 
-        this.audioPlayer.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
-        this.audioPlayer.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
+        //this.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
+        //this.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
 
         if (!noHazardHiding && Game.Instance.LocalPlayerIndex != playerIndex)
 		{
@@ -48,7 +51,8 @@ public class Hazard : AdvancedMonoBehaviour
 		}
         else
         {
-            this.audioPlayer.PlayIdle();
+            //this.audioPlayer.PlayIdle();
+            this.audioIdle.Play();
         }
 
         this.animator.runtimeAnimatorController = this.gameConfig.GetHazardAnimator(this.Type);
@@ -66,24 +70,53 @@ public class Hazard : AdvancedMonoBehaviour
 			case HazardType.AirTreasure:
 				// Air
 				this.spriteRenderer.sortingLayerName = this.airSortingLayerName;
-				this.Tfm.position += this.airYOffset * Vector3.up;
-				break;
+				this.Tfm.position += this.airYOffset * Vector3.up;                
+                break;
 
 			default:
 				// Ground
-				this.spriteRenderer.sortingLayerName = this.groundSortingLayerName;
+				this.spriteRenderer.sortingLayerName = this.groundSortingLayerName;           
 				break;
 		}
-	}
 
-	public void OnPlayerDeadlyCollision()
+        switch (Type) {
+            case HazardType.None:
+                break;
+            case HazardType.Mine:
+            case HazardType.Helicopter:
+            case HazardType.Shark:
+                this.SetAudioIdle(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Idle"));
+                this.SetAudioTouched(this.gameConfig.GetHazardAudio(this.Type.ToString() + "Touched"));
+                break;
+
+            case HazardType.GroundHeart:
+            case HazardType.AirHeart:
+            case HazardType.GroundTreasure:
+            case HazardType.AirTreasure:
+                this.SetAudioTouched(this.gameConfig.GetHazardAudio("pickup"));
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SetAudioTouched(AudioClip audioClip) {
+        audioTouched.clip = audioClip;
+    }
+
+    private void SetAudioIdle(AudioClip audioClip) {
+        audioIdle.clip = audioClip;
+    }
+
+    public void OnPlayerDeadlyCollision()
     {
 		if (this.animator.runtimeAnimatorController == null)
 		{
 			return;
 		}
         this.animator.SetTrigger("Dead");
-        this.audioPlayer.PlayTouched();
+        //this.audioPlayer.PlayTouched();
+        this.audioTouched.Play();
         MakeVisible();
     }
 
@@ -94,7 +127,8 @@ public class Hazard : AdvancedMonoBehaviour
 			return;
 		}
 		this.animator.SetTrigger("Touched");
-        this.audioPlayer.PlayTouched();
+        //this.audioPlayer.PlayTouched();
+        this.audioTouched.Play();
         MakeVisible();
     }
 

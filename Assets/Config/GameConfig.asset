@@ -34,6 +34,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f7d1244c22cce2b45b560f72b9a8b9d9, type: 3}
   - {fileID: 8300000, guid: 4ffa9bc4f99fbe04db49289128085f91, type: 3}
   - {fileID: 8300000, guid: 732aa75c611122342bc4a546dbe47b80, type: 3}
+  - {fileID: 8300000, guid: fb62141a236d2ae49aa68c012529d90f, type: 3}
+  - {fileID: 8300000, guid: e313b3b451a39094ab4921200ab181e7, type: 3}
+  - {fileID: 8300000, guid: 2a957cdc63602dd4c814f56e7e66e2fb, type: 3}
   HazardAnimators:
   - {fileID: 22100000, guid: 47fa7798046990e438951a68a3d6cee5, type: 2}
   - {fileID: 22100000, guid: 8e75f5fb65da34b4386bc43189a79b03, type: 2}

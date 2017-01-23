@@ -22,7 +22,7 @@ public class Player : AdvancedMonoBehaviour
     [SerializeField]
     private TreasureDisplay treasureDisplay;
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioSource audioSource, audioMovementLane, audioMovementJump, audioMovementLand, audioSuccess, audioDefeat, audioHit, music;
     [SerializeField]
     private AudioPlayer audioPlayer;
 	[SerializeField]
@@ -63,7 +63,8 @@ public class Player : AdvancedMonoBehaviour
         {
             if (this.hasBeenHit == false)
             {
-                this.audioPlayer.PlayClip("WaveSuccess");
+                //this.audioPlayer.PlayClip("WaveSuccess");
+                audioSuccess.Play();
             }
             this.hasBeenHit = false;
 			++this.passedWaveCount;
@@ -123,16 +124,20 @@ public class Player : AdvancedMonoBehaviour
 				// Move left
 				--this.columnIndex;
 				this.isMoving = true;
-			}
+
+                audioMovementLane.Play();
+            }
 
 			if (DolphinInput.IsGoingRight())
 			{
 				// Move right
 				++this.columnIndex;
 				this.isMoving = true;
-			}
 
-			if (DolphinInput.IsJumping())
+                audioMovementLane.Play();
+            }
+
+            if (DolphinInput.IsJumping())
 			{
 				// Jump
 				this.Jump();
@@ -205,18 +210,22 @@ public class Player : AdvancedMonoBehaviour
 				this.lifeDisplay.UpdateDisplayedLifeCount(this.heartCount);
 				if (this.heartCount == 0)
                 {
-                    this.audioPlayer.PlayClip("PlayerHit");
+                    //this.audioPlayer.PlayClip("PlayerHit");
+                    audioHit.Play();
 					this.passedWaveCountLabel.text = string.Format("PASSED WAVES: {0}", this.passedWaveCount);
 					this.gameOverUI.Show();
                     //                    Time.timeScale = 0f;
                     this.isDead = true;
+                    music.Stop();
+                    audioDefeat.Play();
                     this.collidingHazard.OnPlayerDeadlyCollision();
 					GameObject.Destroy(this.gameObject);
                 }
                 else
                 {
                     this.animator.SetTrigger("Hit");
-                    this.audioPlayer.PlayClip("PlayerHit");
+                    //this.audioPlayer.PlayClip("PlayerHit");
+                    audioHit.Play();
                     this.collidingHazard.OnPlayerCollision();
                 }
 
@@ -252,13 +261,17 @@ public class Player : AdvancedMonoBehaviour
 		this.isAirborne = true;
 		this.animator.SetTrigger(this.jumpAnimTriggerName);
 		this.spriteRenderer.sortingLayerName = this.airborneSortingLayerName;
-	}
 
-	private void Land()
+        audioMovementJump.Play();
+    }
+
+    private void Land()
 	{
 		// Landing
 		this.isAirborne = false;
 		this.spriteRenderer.sortingLayerName = this.groundedSortingLayerName;
-	}
+
+        audioMovementLand.Play();
+    }
 
 }
